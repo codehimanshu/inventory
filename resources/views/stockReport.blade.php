@@ -11,6 +11,7 @@
 			        <tr>
 			            <th>S No</th>
 			            <th>Category Name</th>
+			            <th>To Site</th>
 			            <th>Costing</th>
 			            <th>Quantity</th>
 			            <th>Dated</th>
@@ -22,6 +23,7 @@
 			    		<tr>
 			    			<td>{{$i++}}</td>
 			    			<td>{{$stock->category}}</td>
+			    			<td>{{$stock->tosite}}</td>
 			    			<td>{{$stock->costing}}</td>
 			    			<td>{{$stock->quantity}}</td>
 			    			<td>{{$stock->dated}}</td>

@@ -22,7 +22,7 @@
                                 </select>\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="costing[]" step="0.01" required="true">\
+                                <input type="text" class="form-control" name="costing[]" required="true">\
                             </td>\
                             <td>\
                                 <input type="number" class="form-control" name="quantity[]" step="0" required="true">\
