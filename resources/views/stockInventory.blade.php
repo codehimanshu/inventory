@@ -36,13 +36,13 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" class="form-control" name="costing[]" step="2">
+                                <input type="number" class="form-control" name="costing[]" step="0.01">
                             </td>
                             <td>
                                 <input type="number" class="form-control" name="quantity[]" step="0">
                             </td>
                             <td>
-                                <input type="date" class="form-control" name="sno[]">
+                                <input type="date" class="form-control" name="date[]">
                             </td>
                         </tr>
                     </tbody>
