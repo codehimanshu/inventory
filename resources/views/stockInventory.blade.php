@@ -22,13 +22,13 @@
                                 </select>\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="costing[]" step="0.01">\
+                                <input type="number" class="form-control" name="costing[]" step="0.01" required="true">\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="quantity[]" step="0">\
+                                <input type="number" class="form-control" name="quantity[]" step="0" required="true">\
                             </td>\
                             <td>\
-                                <input type="date" class="form-control" name="date[]">\
+                                <input type="date" class="form-control" name="date[]" required="true">\
                             </td>\
                         </tr>\
             ')
@@ -39,7 +39,8 @@
 <div class="container">
     <div class="row">
         <center><h2>Stock</h2></center>
-        <form method="">
+        <form method="POST" action="{{ route('saveStockInventory') }}">
+            {{ csrf_field() }}
             <div class="col-md-12">
                 <table class="table">
                     <thead>
@@ -71,13 +72,13 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" class="form-control" name="costing[]" step="0.01">
+                                <input type="number" class="form-control" name="costing[]" step="0.01" required="true">
                             </td>
                             <td>
-                                <input type="number" class="form-control" name="quantity[]" step="0">
+                                <input type="number" class="form-control" name="quantity[]" step="0" required="true">
                             </td>
                             <td>
-                                <input type="date" class="form-control" name="date[]">
+                                <input type="date" class="form-control" name="date[]" required="true">
                             </td>
                         </tr>
                     </tbody>
