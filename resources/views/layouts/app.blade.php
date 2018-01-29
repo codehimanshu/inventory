@@ -102,8 +102,24 @@
 
         @yield('content')
     </div>
+    <footer style="bottom: 0; position: fixed; background-color: #000000a3; color: white; width: 100%;">
+        <center>© Copyright 2018 Sukhmani Buildwell</center>
+    </footer>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{{ asset('js/jquery.table2excel.js') }}"></script>
+    <script type="text/javascript">
+        $("#export").click(function(){
+          $("#table2excel").table2excel({
+            // exclude CSS class
+            exclude: ".noExl",
+            name: "Worksheet Name",
+            filename: "Sukhmani.xls" //do not include extension
+          }); 
+        }); 
+    </script>
+
 </body>
 </html>

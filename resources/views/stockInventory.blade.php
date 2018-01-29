@@ -41,7 +41,7 @@
         <center><h2>Stock</h2></center>
         <form method="POST" action="{{ route('saveStockInventory') }}">
             {{ csrf_field() }}
-            <div class="col-md-12">
+            <div class="col-md-10 col-md-offset-1">
                 <table class="table">
                     <thead>
                         <tr>

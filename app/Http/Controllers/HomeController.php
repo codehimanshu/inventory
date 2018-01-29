@@ -53,6 +53,7 @@ class HomeController extends Controller
     }
 
     public function stockReport() {
-        return;
+        $stocks = Stock::get();
+        return view('stockReport', compact('stocks'));
     }
 }
