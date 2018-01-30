@@ -7,7 +7,7 @@
             <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
               <div class="card-block">
                 <h4 class="card-title">Stock</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Home stock of Company</p>
                 @if(Auth::user()->role == 1)
                     <a href="{{ route('stockInventory') }}" class="card-link">Inventory</a>
                 @endif
@@ -22,7 +22,7 @@
             <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
               <div class="card-block">
                 <h4 class="card-title">Site 1</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Stock at Site 1 of company</p>
                 @if(Auth::user()->role == 1)
                     <a href="{{ route('site1Inventory') }}" class="card-link">Inventory</a>
                 @endif
@@ -34,7 +34,7 @@
             <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
               <div class="card-block">
                 <h4 class="card-title">Site 2</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Stock at Site 2 of company</p>
                 @if(Auth::user()->role == 1)
                     <a href="{{ route('site2Inventory') }}" class="card-link">Inventory</a>
                 @endif
