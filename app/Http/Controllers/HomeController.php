@@ -7,6 +7,7 @@ use App\Category;
 use App\Stock;
 use App\Site1;
 use App\Site2;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -36,6 +37,8 @@ class HomeController extends Controller
     }
 
     public function saveStockInventory(Request $request) {
+        if(Auth::user()->role != 1)
+            return redirect('/home');
         $categories = $request->category;
         $tosites = $request->tosite;
         $costings = $request->costing;
@@ -65,6 +68,8 @@ class HomeController extends Controller
     }
 
     public function saveSite1Inventory(Request $request) {
+        if(Auth::user()->role != 1)
+            return redirect('/home');
         $categories = $request->category;
         $costings = $request->costing;
         $quantities = $request->quantity;
@@ -92,6 +97,8 @@ class HomeController extends Controller
     }
 
     public function saveSite2Inventory(Request $request) {
+        if(Auth::user()->role != 1)
+            return redirect('/home');
         $categories = $request->category;
         $costings = $request->costing;
         $quantities = $request->quantity;
