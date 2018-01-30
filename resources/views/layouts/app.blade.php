@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -110,6 +111,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="{{ asset('js/jquery.table2excel.js') }}"></script>
+    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $("#export").click(function(){
           $("#table2excel").table2excel({
@@ -119,6 +121,14 @@
             filename: "Sukhmani.xls" //do not include extension
           }); 
         }); 
+
+        $(document).ready(function() {
+            $('.datatable').DataTable();
+        } );
+
+        $(document).on("click", ".deleteRow", function(){
+            $(this).closest('tr').remove();
+        });
     </script>
 
 </body>

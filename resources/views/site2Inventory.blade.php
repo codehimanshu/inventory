@@ -24,6 +24,9 @@
                             <td>\
                                 <input type="date" class="form-control" name="date[]" required="true">\
                             </td>\
+                            <td>\
+                                <img src="{{ asset('/close.png') }}" width="30px;" class="deleteRow">\
+                            </td>\
                         </tr>\
             ')
         return;   
@@ -44,6 +47,7 @@
                             <th>Costing</th>
                             <th>Quantity</th>
                             <th>Dated</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody id="table">
@@ -66,6 +70,9 @@
                             </td>
                             <td>
                                 <input type="date" class="form-control" name="date[]" required="true">
+                            </td>
+                            <td>
+                                <img src="{{ asset('/close.png') }}" width="30px;" class="deleteRow">
                             </td>
                         </tr>
                     </tbody>

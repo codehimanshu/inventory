@@ -6,7 +6,7 @@
 	<div class="row">
         <center><h2>Stock</h2></center>
 		<div class="col-md-10 col-md-offset-1">
-			<table class="table" id="table2excel">
+			<table class="table datatable" id="table2excel">
 			    <thead>
 			        <tr>
 			            <th>S No</th>
