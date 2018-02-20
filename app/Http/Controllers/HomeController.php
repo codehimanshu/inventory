@@ -33,24 +33,27 @@ class HomeController extends Controller
 
     public function stockInventory() {
         $categories = Category::get();
-        return view('stockInventory', compact('categories'));
+        $comments = Stock::pluck('comment')->toArray();
+        return view('stockInventory', compact('categories','comments'));
     }
 
     public function saveStockInventory(Request $request) {
-        if(Auth::user()->role != 1)
-            return redirect('/home');
         $categories = $request->category;
-        $tosites = $request->tosite;
         $costings = $request->costing;
         $quantities = $request->quantity;
+        $comments = $request->comment;
         $dates = $request->date;
         foreach ($categories as $key => $category) {
-            $stock = new Stock;
-            if($categories[$key]!="" && $tosites[$key]!="" && $costings[$key]!="" && $quantities[$key]!="" && $dates[$key]!="" )
+            $stock = Stock::where('category',$categories[$key])->where('comment',$comments[$key])->get();
+            if(count($stock) ==0)
+                $stock = new Stock;
+            else
+                $stock = $stock[0];
+            if($categories[$key]!="" && $costings[$key]!="" && $quantities[$key]!="" && $dates[$key]!="" && $comments[$key]!="" )
             $stock->category = $categories[$key];
-            $stock->tosite = $tosites[$key];
-            $stock->costing = $costings[$key];
-            $stock->quantity = $quantities[$key];
+            $stock->costing += $costings[$key];
+            $stock->quantity += $quantities[$key];
+            $stock->comment = $comments[$key];
             $stock->dated = $dates[$key];
             $stock->save();
         }
@@ -58,35 +61,55 @@ class HomeController extends Controller
     }
 
     public function stockReport() {
+        if(Auth::user()->role != 1)
+            return redirect('/home');
         $stocks = Stock::get();
         return view('stockReport', compact('stocks'));
     }
 
-    public function site1Inventory() {
+    public function tosite() {
         $categories = Category::get();
-        return view('site1Inventory', compact('categories'));
+        $comments = Stock::pluck('comment')->toArray();
+        return view('tosite', compact('categories','comments'));
     }
 
-    public function saveSite1Inventory(Request $request) {
-        if(Auth::user()->role != 1)
-            return redirect('/home');
+    public function saveToSite(Request $request) {
         $categories = $request->category;
+        $sites = $request->site;
         $costings = $request->costing;
         $quantities = $request->quantity;
+        $comments = $request->comment;
         $dates = $request->date;
+        $errors = [];
         foreach ($categories as $key => $category) {
-            $stock = new Site1;
-            if($categories[$key]!="" && $costings[$key]!="" && $quantities[$key]!="" && $dates[$key]!="" )
-            $stock->category = $categories[$key];
-            $stock->costing = $costings[$key];
-            $stock->quantity = $quantities[$key];
-            $stock->dated = $dates[$key];
-            $stock->save();
+            $stock = Stock::where('category',$categories[$key])->where('comment',$comments[$key])->get();
+            if(count($stock)== 0){
+                array_push($errors, $categories[$key] .  $comments[$key] . $quantity[$key] );
+                continue;
+            }
+            if($sites[$key] == "Site 1"){
+                if($categories[$key]!="" && $costings[$key]!="" && $quantities[$key]!="" && $dates[$key]!="" && $comments[$key]){
+                    $tosite = Site1::where('category',$categories[$key])->where('comment',$comments[$key])->get();
+                    if(count($tosite)!=0)
+                        $tosite = $tosite[0];
+                    else
+                        $tosite = new Site1;
+                    $stock->category = $categories[$key];
+                    $stock->costing = $costings[$key];
+                    $stock->quantity = $quantities[$key];
+                    $stock->dated = $dates[$key];
+                    $stock->save();                    
+                }
+            }else {
+                
+            }
         }
         return redirect('/site1Report');
     }
 
     public function site1Report() {
+        if(Auth::user()->role != 1)
+            return redirect('/home');
         $stocks = Site1::get();
         return view('site1Report', compact('stocks'));
     }
@@ -97,8 +120,6 @@ class HomeController extends Controller
     }
 
     public function saveSite2Inventory(Request $request) {
-        if(Auth::user()->role != 1)
-            return redirect('/home');
         $categories = $request->category;
         $costings = $request->costing;
         $quantities = $request->quantity;
@@ -116,6 +137,8 @@ class HomeController extends Controller
     }
 
     public function site2Report() {
+        if(Auth::user()->role != 1)
+            return redirect('/home');
         $stocks = Site2::get();
         return view('site2Report', compact('stocks'));
     }

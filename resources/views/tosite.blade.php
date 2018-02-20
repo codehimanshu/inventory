@@ -6,9 +6,6 @@
         $("#table").append('\
                         <tr>\
                             <td>\
-                                <input type="number" class="form-control" name="sno[]">\
-                            </td>\
-                            <td>\
                                 <select class="form-control" name="category[]">\
                                     @foreach($categories as $category)\
                                         <option>{{$category->category}}</option>\
@@ -16,10 +13,19 @@
                                 </select>\
                             </td>\
                             <td>\
-                                <input type="text" class="form-control" name="costing[]" required="true">\
+                                <select class="form-control" name="site[]">\
+                                    <option>Site 1</option>\
+                                    <option>Site 2</option>\
+                                </select>\
+                            </td>\
+                            <td>\
+                                <input type="number" class="form-control" name="costing[]" required="true">\
                             </td>\
                             <td>\
                                 <input type="number" class="form-control" name="quantity[]" step="0" required="true">\
+                            </td>\
+                            <td>\
+                                <input type="number" class="form-control" name="comment[]" list="comment" required="true">\
                             </td>\
                             <td>\
                                 <input type="date" class="form-control" name="date[]" required="true">\
@@ -35,26 +41,24 @@
 
 <div class="container">
     <div class="row">
-        <center><h2>Site 1</h2></center>
-        <form method="POST" action="{{ route('saveSite1Inventory') }}">
+        <center><h2>To Site</h2></center>
+        <form method="POST" action="{{ route('saveToSite') }}">
             {{ csrf_field() }}
             <div class="col-md-10 col-md-offset-1">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>S No</th>
                             <th>Category Name</th>
+                            <th>To Site</th>
                             <th>Costing</th>
                             <th>Quantity</th>
+                            <th>Comment</th>
                             <th>Dated</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody id="table">
                         <tr>
-                            <td>
-                                <input type="number" class="form-control" name="sno[]">
-                            </td>
                             <td>
                                 <select class="form-control" name="category[]">
                                     @foreach($categories as $category)
@@ -63,11 +67,25 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="costing[]" required="true">
+                                <select class="form-control" name="site[]">
+                                    <option>Site 1</option>
+                                    <option>Site 2</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" name="costing[]" required="true">
                             </td>
                             <td>
                                 <input type="number" class="form-control" name="quantity[]" step="0" required="true">
                             </td>
+                            <td>
+                                <input type="number" class="form-control" name="comment[]" list="comment" required="true">
+                            </td>
+                            <datalist id="comments">
+                                @foreach($comments as $comment)
+                                    <option>{{ $comment }}</option>
+                                @endforeach
+                            </datalist>
                             <td>
                                 <input type="date" class="form-control" name="date[]" required="true">
                             </td>

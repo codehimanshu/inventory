@@ -19,11 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/stockInventory', 'HomeController@stockInventory')->name('stockInventory');
-Route::get('/site1Inventory', 'HomeController@site1Inventory')->name('site1Inventory');
-Route::get('/site2Inventory', 'HomeController@site2Inventory')->name('site2Inventory');
 Route::post('/saveStockInventory', 'HomeController@saveStockInventory')->name('saveStockInventory');
-Route::post('/saveSite1Inventory', 'HomeController@saveSite1Inventory')->name('saveSite1Inventory');
-Route::post('/saveSite2Inventory', 'HomeController@saveSite2Inventory')->name('saveSite2Inventory');
+Route::get('/tosite', 'HomeController@tosite')->name('tosite');
+Route::post('/saveToSite', 'HomeController@saveToSite')->name('saveToSite');
 Route::get('/stockReport', 'HomeController@stockReport')->name('stockReport');
 Route::get('/site1Report', 'HomeController@site1Report')->name('site1Report');
 Route::get('/site2Report', 'HomeController@site2Report')->name('site2Report');

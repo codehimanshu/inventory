@@ -6,9 +6,6 @@
         $("#table").append('\
                         <tr>\
                             <td>\
-                                <input type="number" class="form-control" name="sno[]">\
-                            </td>\
-                            <td>\
                                 <select class="form-control" name="category[]">\
                                     @foreach($categories as $category)\
                                         <option>{{$category->category}}</option>\
@@ -16,16 +13,24 @@
                                 </select>\
                             </td>\
                             <td>\
-                                <select class="form-control" name="tosite[]">\
-                                    <option>Site 1</option>\
-                                    <option>Site 2</option>\
+                                <select class="form-control" name="subcategory[]">\
+                                        <option>Wires</option>\
+                                        <option>Switches</option>\
+                                        <option>MCB</option>\
+                                        <option>LED</option>\
+                                        <option>Strip Lights</option>\
+                                        <option>Niche Lights</option>\
+                                        <option>Miscellaneous</option>\
                                 </select>\
                             </td>\
                             <td>\
-                                <input type="text" class="form-control" name="costing[]" required="true">\
+                                <input type="number" class="form-control" name="costing[]" required="true">\
                             </td>\
                             <td>\
                                 <input type="number" class="form-control" name="quantity[]" step="0" required="true">\
+                            </td>\
+                            <td>\
+                                <input type="text" class="form-control" name="comment[]" required="true" list="datalist">\
                             </td>\
                             <td>\
                                 <input type="date" class="form-control" name="date[]" required="true">\
@@ -42,27 +47,24 @@
 
 <div class="container">
     <div class="row">
-        <center><h2>Stock</h2></center>
+        <center><h2>Warehouse</h2></center>
         <form method="POST" action="{{ route('saveStockInventory') }}">
             {{ csrf_field() }}
             <div class="col-md-10 col-md-offset-1">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>S No</th>
                             <th>Category Name</th>
-                            <th>To Site</th>
+                            <th>Sub Category</th>
                             <th>Costing</th>
                             <th>Quantity</th>
+                            <th>Comment</th>
                             <th>Dated</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody id="table">
                         <tr>
-                            <td>
-                                <input type="number" class="form-control" name="sno[]">
-                            </td>
                             <td>
                                 <select class="form-control" name="category[]">
                                     @foreach($categories as $category)
@@ -71,17 +73,30 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="form-control" name="tosite[]">
-                                    <option>Site 1</option>
-                                    <option>Site 2</option>
+                                <select class="form-control" name="subcategory[]">
+                                        <option>Wires</option>
+                                        <option>Switches</option>
+                                        <option>MCB</option>
+                                        <option>LED</option>
+                                        <option>Strip Lights</option>
+                                        <option>Niche Lights</option>
+                                        <option>Miscellaneous</option>
                                 </select>
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="costing[]" required="true">
+                                <input type="number" class="form-control" name="costing[]" required="true">
                             </td>
                             <td>
                                 <input type="number" class="form-control" name="quantity[]" step="0" required="true">
                             </td>
+                            <td>
+                                <input type="text" class="form-control" name="comment[]" required="true" list="comments">
+                            </td>
+                            <datalist id="comments">
+                                @foreach($comments as $comment)
+                                    <option>{{ $comment }}</option>
+                                @endforeach
+                            </datalist>
                             <td>
                                 <input type="date" class="form-control" name="date[]" required="true">
                             </td>

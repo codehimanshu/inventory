@@ -4,16 +4,16 @@
 
 <div class="container">
 	<div class="row">
-        <center><h2>Stock</h2></center>
+        <center><h2>Warehouse Stock</h2></center>
 		<div class="col-md-10 col-md-offset-1">
 			<table class="table datatable" id="table2excel">
 			    <thead>
 			        <tr>
 			            <th>S No</th>
 			            <th>Category Name</th>
-			            <th>To Site</th>
 			            <th>Costing</th>
 			            <th>Quantity</th>
+			            <th>Comment</th>
 			            <th>Dated</th>
 			        </tr>
 			    </thead>
@@ -23,9 +23,9 @@
 			    		<tr>
 			    			<td>{{$i++}}</td>
 			    			<td>{{$stock->category}}</td>
-			    			<td>{{$stock->tosite}}</td>
 			    			<td>{{$stock->costing}}</td>
 			    			<td>{{$stock->quantity}}</td>
+			    			<td>{{$stock->comment}}</td>
 			    			<td>{{$stock->dated}}</td>
 			    		</tr>
 			    	@endforeach
