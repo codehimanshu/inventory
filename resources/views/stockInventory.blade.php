@@ -81,6 +81,60 @@
                                         <option>Strip Lights</option>
                                         <option>Niche Lights</option>
                                         <option>Miscellaneous</option>
+                                        <option>Flush Tanks</option>
+                                        <option>W C (Seat)</option>
+                                        <option>WashBasin</option>
+                                        <option>Diverter</option>
+                                        <option>Sink Mixture</option>
+                                        <option>Basin Diverter</option>
+                                        <option>Angle Value</option>
+                                        <option>Health Faucet</option>
+                                        <option>Battle Trap</option>
+                                        <option>Spout</option>
+                                        <option>Rain Shower</option>
+                                        <option>Miscellaneous</option>
+                                        <option>Paint</option>
+                                        <option>P.U.</option>
+                                        <option>Wood Polish</option>
+                                        <option>Putty</option>
+                                        <option>Wood Base</option>
+                                        <option>Sealer</option>
+                                        <option>Miscellaneous</option>
+                                        <option>Ply</option>
+                                        <option>Board</option>
+                                        <option>Veneen</option>
+                                        <option>Mica</option>
+                                        <option>MDF</option>
+                                        <option>Charcoal Sheet</option>
+                                        <option>Miscellaneous</option>
+                                        <option>Dust</option>
+                                        <option>Bricks</option>
+                                        <option>Cement</option>
+                                        <option>Peta</option>
+                                        <option>Rodi</option>
+                                        <option>Miscellaneous</option>
+                                        <option>Hinges</option>
+                                        <option>Hinges Doors</option>
+                                        <option>Channel</option>
+                                        <option>Handle Locks</option>
+                                        <option>Tower Bolt</option>
+                                        <option>Jalli Palla Handles</option>
+                                        <option>Drawer Locks</option>
+                                        <option>Wardrobe Locks</option>
+                                        <option>Wardrobe Handles</option>
+                                        <option>Locks</option>
+                                        <option>Knobs</option>
+                                        <option>Miscellaneous</option>
+                                        <option>Hinges</option>
+                                        <option>Inno Tech</option>
+                                        <option>InnoTech</option>
+                                        <option>S Chausel</option>
+                                        <option>Pantry</option>
+                                        <option>Bottle Pullout</option>
+                                        <option>Rolling Shutler</option>
+                                        <option>Lift Up</option>
+                                        <option>Cutlry</option>
+                                        <option>Miscellaneous</option>
                                 </select>
                             </td>
                             <td>
