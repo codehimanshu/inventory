@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\SubCategory;
 use App\Category;
 use App\Stock;
-use App\Site1;
-use App\Site2;
 use Auth;
 
 class HomeController extends Controller
@@ -32,28 +31,28 @@ class HomeController extends Controller
     }
 
     public function stockInventory() {
-        $categories = Category::get();
-        $comments = Stock::pluck('comment')->toArray();
-        return view('stockInventory', compact('categories','comments'));
+        $categories = SubCategory::get();
+        return view('stockInventory', compact('categories'));
     }
 
     public function saveStockInventory(Request $request) {
         $categories = $request->category;
-        $costings = $request->costing;
         $quantities = $request->quantity;
-        $comments = $request->comment;
+        $costings = $request->costing;
+        $amounts = $request->amount;
         $dates = $request->date;
         foreach ($categories as $key => $category) {
-            $stock = Stock::where('category',$categories[$key])->where('comment',$comments[$key])->get();
-            if(count($stock) ==0)
+            $categories[$key] = substr($categories[$key],0,strpos($categories[$key], '.'));
+            $stock = Stock::where('subcategory_id',$categories[$key])->get();
+            if(count($stock) ==0){
                 $stock = new Stock;
+                $stock->subcategory_id = $categories[$key];
+            }
             else
                 $stock = $stock[0];
-            if($categories[$key]!="" && $costings[$key]!="" && $quantities[$key]!="" && $dates[$key]!="" && $comments[$key]!="" )
-            $stock->category = $categories[$key];
-            $stock->costing += $costings[$key];
-            $stock->quantity += $quantities[$key];
-            $stock->comment = $comments[$key];
+            if($categories[$key]!="" && $dates[$key]!="")
+            $stock->stock_qty += $quantities[$key];
+            $stock->stock_amt += max($amounts[$key], $quantities[$key]*$costings[$key]);
             $stock->dated = $dates[$key];
             $stock->save();
         }

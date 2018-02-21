@@ -6,31 +6,16 @@
         $("#table").append('\
                         <tr>\
                             <td>\
-                                <select class="form-control" name="category[]">\
-                                    @foreach($categories as $category)\
-                                        <option>{{$category->category}}</option>\
-                                    @endforeach\
-                                </select>\
+                                <input type="text" class="form-control" name="category[]" required="true" list="categories">\
                             </td>\
                             <td>\
-                                <select class="form-control" name="subcategory[]">\
-                                        <option>Wires</option>\
-                                        <option>Switches</option>\
-                                        <option>MCB</option>\
-                                        <option>LED</option>\
-                                        <option>Strip Lights</option>\
-                                        <option>Niche Lights</option>\
-                                        <option>Miscellaneous</option>\
-                                </select>\
+                                <input type="number" class="form-control" name="quantity[]" step="0" required="">\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="costing[]" required="true">\
+                                <input type="number" class="form-control" name="costing[]" required="">\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="quantity[]" step="0" required="true">\
-                            </td>\
-                            <td>\
-                                <input type="text" class="form-control" name="comment[]" required="true" list="datalist">\
+                                <input type="number" class="form-control" name="amount[]" required="true">\
                             </td>\
                             <td>\
                                 <input type="date" class="form-control" name="date[]" required="true">\
@@ -54,11 +39,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Category Name</th>
-                            <th>Sub Category</th>
-                            <th>Costing</th>
+                            <th>Category</th>
                             <th>Quantity</th>
-                            <th>Comment</th>
+                            <th>Costing</th>
+                            <th>Amount</th>
                             <th>Dated</th>
                             <th>Delete</th>
                         </tr>
@@ -66,91 +50,22 @@
                     <tbody id="table">
                         <tr>
                             <td>
-                                <select class="form-control" name="category[]">
-                                    @foreach($categories as $category)
-                                        <option>{{$category->category}}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" class="form-control" name="category[]" required="true" list="categories">
                             </td>
-                            <td>
-                                <select class="form-control" name="subcategory[]">
-                                        <option>Wires</option>
-                                        <option>Switches</option>
-                                        <option>MCB</option>
-                                        <option>LED</option>
-                                        <option>Strip Lights</option>
-                                        <option>Niche Lights</option>
-                                        <option>Miscellaneous</option>
-                                        <option>Flush Tanks</option>
-                                        <option>W C (Seat)</option>
-                                        <option>WashBasin</option>
-                                        <option>Diverter</option>
-                                        <option>Sink Mixture</option>
-                                        <option>Basin Diverter</option>
-                                        <option>Angle Value</option>
-                                        <option>Health Faucet</option>
-                                        <option>Battle Trap</option>
-                                        <option>Spout</option>
-                                        <option>Rain Shower</option>
-                                        <option>Miscellaneous</option>
-                                        <option>Paint</option>
-                                        <option>P.U.</option>
-                                        <option>Wood Polish</option>
-                                        <option>Putty</option>
-                                        <option>Wood Base</option>
-                                        <option>Sealer</option>
-                                        <option>Miscellaneous</option>
-                                        <option>Ply</option>
-                                        <option>Board</option>
-                                        <option>Veneen</option>
-                                        <option>Mica</option>
-                                        <option>MDF</option>
-                                        <option>Charcoal Sheet</option>
-                                        <option>Miscellaneous</option>
-                                        <option>Dust</option>
-                                        <option>Bricks</option>
-                                        <option>Cement</option>
-                                        <option>Peta</option>
-                                        <option>Rodi</option>
-                                        <option>Miscellaneous</option>
-                                        <option>Hinges</option>
-                                        <option>Hinges Doors</option>
-                                        <option>Channel</option>
-                                        <option>Handle Locks</option>
-                                        <option>Tower Bolt</option>
-                                        <option>Jalli Palla Handles</option>
-                                        <option>Drawer Locks</option>
-                                        <option>Wardrobe Locks</option>
-                                        <option>Wardrobe Handles</option>
-                                        <option>Locks</option>
-                                        <option>Knobs</option>
-                                        <option>Miscellaneous</option>
-                                        <option>Hinges</option>
-                                        <option>Inno Tech</option>
-                                        <option>InnoTech</option>
-                                        <option>S Chausel</option>
-                                        <option>Pantry</option>
-                                        <option>Bottle Pullout</option>
-                                        <option>Rolling Shutler</option>
-                                        <option>Lift Up</option>
-                                        <option>Cutlry</option>
-                                        <option>Miscellaneous</option>
-                                </select>
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" name="costing[]" required="true">
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" name="quantity[]" step="0" required="true">
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" name="comment[]" required="true" list="comments">
-                            </td>
-                            <datalist id="comments">
-                                @foreach($comments as $comment)
-                                    <option>{{ $comment }}</option>
-                                @endforeach
+                            <datalist id="categories">
+                                @foreach($categories as $category)
+                                    <option>{{$category->id}}. {{$category->subcategory}} ({{$category->category->category}})</option>
+                                @endforeach   
                             </datalist>
+                            <td>
+                                <input type="number" class="form-control" name="quantity[]" step="0" >
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" name="costing[]" >
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" name="amount[]" >
+                            </td>
                             <td>
                                 <input type="date" class="form-control" name="date[]" required="true">
                             </td>
