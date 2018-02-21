@@ -62,7 +62,7 @@ class HomeController extends Controller
     public function stockReport() {
         if(Auth::user()->role != 1)
             return redirect('/home');
-        $stocks = Stock::get();
+        $stocks = Stock::with('subcategory')->get();
         return view('stockReport', compact('stocks'));
     }
 

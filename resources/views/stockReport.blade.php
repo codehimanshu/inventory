@@ -10,10 +10,9 @@
 			    <thead>
 			        <tr>
 			            <th>S No</th>
-			            <th>Category Name</th>
-			            <th>Costing</th>
+			            <th>Category</th>
 			            <th>Quantity</th>
-			            <th>Comment</th>
+			            <th>Amount</th>
 			            <th>Dated</th>
 			        </tr>
 			    </thead>
@@ -22,10 +21,9 @@
 			    	@foreach($stocks as $stock)
 			    		<tr>
 			    			<td>{{$i++}}</td>
-			    			<td>{{$stock->category}}</td>
-			    			<td>{{$stock->costing}}</td>
-			    			<td>{{$stock->quantity}}</td>
-			    			<td>{{$stock->comment}}</td>
+			    			<td>{{$stock->subcategory->subcategory}} ({{$stock->subcategory->category->category}})</td>
+			    			<td>{{$stock->stock_qty}}</td>
+			    			<td>{{$stock->stock_amt}}</td>
 			    			<td>{{$stock->dated}}</td>
 			    		</tr>
 			    	@endforeach

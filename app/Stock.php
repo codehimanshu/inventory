@@ -11,7 +11,7 @@ class Stock extends Model
     ];
 
     public function subcategory(){
-        return $this->hasOne('App\SubCategory','subcategory_id','id');    	
+        return $this->hasOne('App\SubCategory','id','subcategory_id');    	
     }
 
     protected $table = 'stock';

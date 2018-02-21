@@ -28,9 +28,9 @@
             <div class="col-md-4">
                 <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
                   <div class="card-block">
-                    <h4 class="card-title">Site 1</h4>
-                    <p class="card-text">Stock at Site 1 of company</p>
-                        <a href="{{ route('site1Report') }}" class="card-link">Generate Report</a>
+                    <h4 class="card-title">Warehouse</h4>
+                    <p class="card-text">Stock at Warehouse of company</p>
+                        <a href="{{ route('stockReport') }}" class="card-link">Generate Report</a>
                   </div>
                 </div>
             </div>
