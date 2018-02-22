@@ -35,14 +35,14 @@
                     </a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <div class="collapse navbar-collapse text-left" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <!--<ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav">
                         &nbsp;
-                    </ul>-->
+                    </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right navb">
+                    <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>

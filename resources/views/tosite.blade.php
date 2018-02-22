@@ -45,8 +45,8 @@
         <center><h2>To Site</h2></center>
         <form method="POST" action="{{ route('saveToSite') }}">
             {{ csrf_field() }}
-            <div class="col-md-10 col-md-offset-1">
-                <table class="table">
+            <div class="col-md-10 col-md-offset-1" style="overflow-x:auto;">
+                <table class="table hover table-striped display">
                     <thead>
                         <tr>
                             <th>Category Name</th>
