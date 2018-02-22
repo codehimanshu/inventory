@@ -41,7 +41,7 @@
                         <tr>
                             <th>Category</th>
                             <th>Quantity</th>
-                            <th>Costing< (in Rs)/th>
+                            <th>Rate< (in Rs)/th>
                             <th>Amount (in Rs)</th>
                             <th>Dated</th>
                             <th>Delete</th>
