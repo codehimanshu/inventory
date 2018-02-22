@@ -13,7 +13,7 @@
 			            <th>S No</th>
 			            <th>Category</th>
 			            <th>Quantity</th>
-			            <th>Amount</th>
+			            <th>Amount (in Rs)</th>
 			            <th>Dated</th>
 			        </tr>
 			    </thead>

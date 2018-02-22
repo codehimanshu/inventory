@@ -62,8 +62,8 @@
                             <th>Category Name</th>
                             <th>To Site</th>
                             <th>Quantity</th>
-                            <th>Costing</th>
-                            <th>Amount</th>
+                            <th>Costing (in Rs)</th>
+                            <th>Amount (in Rs)</th>
                             <th>Dated</th>
                             <th>Delete</th>
                         </tr>
