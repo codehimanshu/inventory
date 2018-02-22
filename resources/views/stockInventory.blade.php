@@ -9,13 +9,13 @@
                                 <input type="text" class="form-control" name="category[]" required="true" list="categories">\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="quantity[]" step="0">\
+                                <input type="number" class="form-control quantity" name="quantity[]" step="0">\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="costing[]" step="0.01" >\
+                                <input type="number" class="form-control costing" name="costing[]" step="0.01" >\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="amount[]" step="0.01" >\
+                                <input type="number" class="form-control amount" name="amount[]" step="0.01" >\
                             </td>\
                             <td>\
                                 <input type="date" class="form-control" name="date[]" required="true">\
@@ -58,13 +58,13 @@
                                 @endforeach   
                             </datalist>
                             <td>
-                                <input type="number" class="form-control" name="quantity[]" step="0" >
+                                <input type="number" class="form-control quantity" name="quantity[]" step="0" >
                             </td>
                             <td>
-                                <input type="number" class="form-control" name="costing[]"  step="0.01">
+                                <input type="number" class="form-control costing" name="costing[]"  step="0.01">
                             </td>
                             <td>
-                                <input type="number" class="form-control" name="amount[]" step="0.01" >
+                                <input type="number" class="form-control amount" name="amount[]" step="0.01" >
                             </td>
                             <td>
                                 <input type="date" class="form-control" name="date[]" required="true">

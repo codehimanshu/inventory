@@ -128,6 +128,14 @@
         $(document).on("click", ".deleteRow", function(){
             $(this).closest('tr').remove();
         });
+
+        $(document).on("keyup", ".costing", function(){
+            costing = $(this).val();
+            quantity = $(this).closest('tr').find('.quantity').val();
+            console.log(costing);
+            console.log(quantity);
+            $(this).closest('tr').find('.amount').val(costing*quantity);
+        });
     </script>
 
 </body>
