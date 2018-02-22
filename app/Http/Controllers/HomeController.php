@@ -79,7 +79,8 @@ class HomeController extends Controller
         return view('stockReport', compact('stocks','total_amt','title'));
     }
 
-    public function tosite() {
+    public function tosite(Request $request) {
+        $errors = $request->errors;
         $categories = SubCategory::get();
         $title = "inventory";
         return view('tosite', compact('categories','title'));

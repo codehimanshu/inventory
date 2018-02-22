@@ -42,6 +42,16 @@
 
 <div class="container">
     <div class="row">
+        @if(count($errors))
+            <div class="col-md-10 col-md-offset-1">
+                <div class="alert alert-danger">
+                  <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+                </div>
+                @foreach($errors as $error)
+
+                @endforeach
+            </div>
+        @endif
         <center><h2>To Site</h2></center>
         <form method="POST" action="{{ route('saveToSite') }}">
             {{ csrf_field() }}
