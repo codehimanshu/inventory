@@ -28,12 +28,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $title = "dashboard";
+        return view('home','title');
     }
 
     public function stockInventory() {
         $categories = SubCategory::get();
-        return view('stockInventory', compact('categories'));
+        $title = "inventory";
+        return view('stockInventory', compact('categories','title'));
     }
 
     public function saveStockInventory(Request $request) {
@@ -73,12 +75,14 @@ class HomeController extends Controller
             return redirect('/home');
         $stocks = Stock::with('subcategory')->get();
         $total_amt = Stock::sum('stock_amt');
-        return view('stockReport', compact('stocks','total_amt'));
+        $title = "report";
+        return view('stockReport', compact('stocks','total_amt','title'));
     }
 
     public function tosite() {
         $categories = SubCategory::get();
-        return view('tosite', compact('categories'));
+        $title = "inventory";
+        return view('tosite', compact('categories','title'));
     }
 
     public function saveToSite(Request $request) {
