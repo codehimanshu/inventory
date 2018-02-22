@@ -94,7 +94,7 @@ class HomeController extends Controller
             $categories[$key] = substr($categories[$key],0,strpos($categories[$key], '.'));
             $stock = Stock::where('subcategory_id',$categories[$key])->get();
             if(count($stock) ==0){
-                array_push($errors, $cat . $quantity[$key] );
+                array_push($errors, $cat . $quantities[$key] );
                 continue;
             }else
                 $stock = $stock[0];
@@ -128,7 +128,7 @@ class HomeController extends Controller
                         $log->save();
                     }else{
                         echo "2";
-                        array_push($errors, $cat . $quantity[$key] );
+                        array_push($errors, $cat . $quantities[$key] );
                         continue;
                     }
                 }
