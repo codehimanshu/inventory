@@ -173,36 +173,14 @@ class HomeController extends Controller
     public function site1Report() {
         if(Auth::user()->role != 1)
             return redirect('/home');
-        $stocks = Site1::get();
+        $stocks = Stock::with('subcategory')->get();
         return view('site1Report', compact('stocks'));
-    }
-
-    public function site2Inventory() {
-        $categories = SubCategory::get();
-        return view('site2Inventory', compact('categories'));
-    }
-
-    public function saveSite2Inventory(Request $request) {
-        $categories = $request->category;
-        $costings = $request->costing;
-        $quantities = $request->quantity;
-        $dates = $request->date;
-        foreach ($categories as $key => $category) {
-            $stock = new Site2;
-            if($categories[$key]!="" && $costings[$key]!="" && $quantities[$key]!="" && $dates[$key]!="" )
-            $stock->category = $categories[$key];
-            $stock->costing = $costings[$key];
-            $stock->quantity = $quantities[$key];
-            $stock->dated = $dates[$key];
-            $stock->save();
-        }
-        return redirect('/site2Report');
     }
 
     public function site2Report() {
         if(Auth::user()->role != 1)
             return redirect('/home');
-        $stocks = Site2::get();
+        $stocks = Stock::with('subcategory')->get();
         return view('site2Report', compact('stocks'));
     }
 }

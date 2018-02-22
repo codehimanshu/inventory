@@ -4,15 +4,15 @@
 
 <div class="container">
 	<div class="row">
-        <center><h2>Site 2</h2></center>
+        <center><h2>Site 2 Report</h2></center>
 		<div class="col-md-10 col-md-offset-1">
 			<table class="table datatable" id="table2excel">
 			    <thead>
 			        <tr>
 			            <th>S No</th>
-			            <th>Category Name</th>
-			            <th>Costing</th>
+			            <th>Category</th>
 			            <th>Quantity</th>
+			            <th>Amount</th>
 			            <th>Dated</th>
 			        </tr>
 			    </thead>
@@ -21,9 +21,9 @@
 			    	@foreach($stocks as $stock)
 			    		<tr>
 			    			<td>{{$i++}}</td>
-			    			<td>{{$stock->category}}</td>
-			    			<td>{{$stock->costing}}</td>
-			    			<td>{{$stock->quantity}}</td>
+			    			<td>{{$stock->subcategory->subcategory}} ({{$stock->subcategory->category->category}})</td>
+			    			<td>{{$stock->site2_qty}}</td>
+			    			<td>{{$stock->site2_amt}}</td>
 			    			<td>{{$stock->dated}}</td>
 			    		</tr>
 			    	@endforeach
