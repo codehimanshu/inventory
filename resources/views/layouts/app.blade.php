@@ -48,8 +48,16 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li><a href="{{ route('home') }}">Dashboard</a></li>
-                            <li class="dropdown">
+                            @if($title == "dashboard")
+                                <li class="active"><a href="{{ route('home') }}">Dashboard</a></li>
+                            @else
+                                <li><a href="{{ route('home') }}">Dashboard</a></li>
+                            @endif
+                            @if($title == "inventory")
+                                <li class="dropdown active">
+                            @else
+                                <li class="dropdown">
+                            @endif
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     Inventory <span class="caret"></span>
                                 </a>
@@ -59,7 +67,11 @@
                                 </ul>
                             </li>
                             @if(Auth::user()->role == 1)
-                                <li class="dropdown">
+                                @if($title == "report")
+                                    <li class="dropdown active">
+                                @else
+                                    <li class="dropdown">
+                                @endif
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                         Generate Report <span class="caret"></span>
                                     </a>
