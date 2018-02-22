@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         $title = "dashboard";
-        return view('home','title');
+        return view('home',compact('title'));
     }
 
     public function stockInventory() {
@@ -180,7 +180,8 @@ class HomeController extends Controller
             return redirect('/home');
         $stocks = Stock::with('subcategory')->get();
         $total_amt = Stock::sum('site1_amt');
-        return view('site1Report', compact('stocks','total_amt'));
+        $title = "report";
+        return view('site1Report', compact('stocks','total_amt','title'));
     }
 
     public function site2Report() {
@@ -188,6 +189,7 @@ class HomeController extends Controller
             return redirect('/home');
         $stocks = Stock::with('subcategory')->get();
         $total_amt = Stock::sum('site2_amt');
-        return view('site2Report', compact('stocks','total_amt'));
+        $title = "report";
+        return view('site2Report', compact('stocks','total_amt','title'));
     }
 }
