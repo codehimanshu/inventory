@@ -1,4 +1,4 @@
-<!doctype html>
+[A<!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
@@ -12,7 +12,6 @@
 
         <!-- Styles -->
         <style>
-            
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -63,16 +62,6 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-            div a{
-                font-weight: bold;
-                font-size: 1.4em;
-                color: black;
-            }
-            div a:hover{
-                background-color: white;
-                color: black;
-                font-size: 1.5em;
-            }
         </style>
     </head>
     <body>
@@ -83,13 +72,14 @@
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('register') }}">Register</a>
                     @endauth
                 </div>
             @endif
 
             <div class="content">
-                <div class="title m-b-md"">
-                    Sukhmani<br><b>BuildWell</b>
+                <div class="title m-b-md">
+                    Sukhmani <br><b>BuildWell</b>
                 </div>
             </div>
         </div>

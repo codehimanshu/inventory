@@ -12,25 +12,22 @@ button:hover{
 	background-color: #00008B;
 	box-shadow: 0 0 5px grey inset;
 }
-.navb{
-	float: right;
-	display: block;
-}
+
 nav ul li{
 	color: white;
 	font-size: 1.2em; 
 	font-weight: bold;
 }
 nav ul li:hover{
-	color:yellow;
-	background-color: lightblue;
+	color:black;
+	background-color: white;
 }
 nav ul li ul a{
 	width: inherit;
 }
 nav ul li :hover{
-	color:yellow;
-	background-color: lightblue;
+	color:black;
+	background-color: white;
 }
 h2{
 	font-weight: bold;
