@@ -14,7 +14,7 @@
         <style>
             html{
                 background-image: url("{{ URL::to('construction.jpg') }}"); 
-                opacity: 0.2;
+                opacity: 0.3;
                 background-repeat: no-repeat; 
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
@@ -23,7 +23,8 @@
             }
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                /*color: #636b6f;*/
+                color: black;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -73,13 +74,13 @@
             }
             div a{
                 font-weight: bold;
-                font-size: 1.2em;
-                color: white;
+                font-size: 1.4em;
+                color: black;
             }
             div a:hover{
                 background-color: white;
                 color: black;
-                font-size: 1.3em;
+                font-size: 1.5em;
             }
         </style>
     </head>
@@ -98,7 +99,7 @@
 
             <div class="content">
                 <div class="title m-b-md"">
-                    Sukhmani <br><b>BuildWell</b>
+                    <b>Sukhmani</b> <br><b>BuildWell</b>
                 </div>
             </div>
         </div>
