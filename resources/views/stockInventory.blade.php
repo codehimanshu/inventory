@@ -9,13 +9,13 @@
                                 <input type="text" class="form-control" name="category[]" required="true" list="categories">\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="quantity[]" step="0" required="">\
+                                <input type="number" class="form-control" name="quantity[]" step="0">\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="costing[]" required="">\
+                                <input type="number" class="form-control" name="costing[]" step="0.01" >\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="amount[]" required="true">\
+                                <input type="number" class="form-control" name="amount[]" step="0.01" >\
                             </td>\
                             <td>\
                                 <input type="date" class="form-control" name="date[]" required="true">\
@@ -61,10 +61,10 @@
                                 <input type="number" class="form-control" name="quantity[]" step="0" >
                             </td>
                             <td>
-                                <input type="number" class="form-control" name="costing[]" >
+                                <input type="number" class="form-control" name="costing[]"  step="0.01">
                             </td>
                             <td>
-                                <input type="number" class="form-control" name="amount[]" >
+                                <input type="number" class="form-control" name="amount[]" step="0.01" >
                             </td>
                             <td>
                                 <input type="date" class="form-control" name="date[]" required="true">

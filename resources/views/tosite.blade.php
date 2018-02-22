@@ -23,10 +23,10 @@
                                 <input type="number" class="form-control" name="quantity[]" step="0" >\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="costing[]" >\
+                                <input type="number" class="form-control" name="costing[]"  step="0.01">\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="amount[]" >\
+                                <input type="number" class="form-control" name="amount[]"  step="0.01">\
                             </td>\
                             <td>\
                                 <input type="date" class="form-control" name="date[]" required="true">\
@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="alert alert-danger">
-                      <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+                      <strong>Danger!</strong> Indicates a dangerous or potentially negative action.<br>
                         @foreach(session('errors') as $error)
                             {{$error}}<br>
                         @endforeach
@@ -99,10 +99,10 @@
                                 <input type="number" class="form-control" name="quantity[]" step="0" >
                             </td>
                             <td>
-                                <input type="number" class="form-control" name="costing[]" >
+                                <input type="number" class="form-control" name="costing[]"  step="0.01">
                             </td>
                             <td>
-                                <input type="number" class="form-control" name="amount[]" >
+                                <input type="number" class="form-control" name="amount[]"   step="0.01">
                             </td>
                             <td>
                                 <input type="date" class="form-control" name="date[]" required="true">
