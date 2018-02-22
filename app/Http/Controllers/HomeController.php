@@ -88,6 +88,7 @@ class HomeController extends Controller
 
     public function saveToSite(Request $request) {
         $request->session()->pull('errors');
+        $request->session()->pull('success');
         $categories = $request->category;
         $sites = $request->site;
         $quantities = $request->quantity;
@@ -174,7 +175,10 @@ class HomeController extends Controller
                 }
             }
         }
-        $request->session()->put('errors',$errors);
+        if(count($errors))
+            $request->session()->put('errors',$errors);
+        else
+            $request->session()->put('success',"success");
         return redirect('/tosite');
     }
 

@@ -54,6 +54,15 @@
                 </div>
             </div>
         @endif
+        @if(session('success'))
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="alert alert-success">
+                      <strong>Success!</strong> Stock created.
+                    </div>
+                </div>
+            </div>
+        @endif
         <center><h2>To Site</h2></center>
         <form method="POST" action="{{ route('saveToSite') }}">
             {{ csrf_field() }}
