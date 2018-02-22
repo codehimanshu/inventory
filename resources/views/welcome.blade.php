@@ -13,7 +13,7 @@
         <!-- Styles -->
         <style>
             html{
-                background-image: url("{{ URL::to('construction.jpg') }}"); 
+                background-image: url("{{ URL::to('Construction.jpg') }}"); 
                 opacity: 0.3;
                 background-repeat: no-repeat; 
                 -webkit-background-size: cover;
