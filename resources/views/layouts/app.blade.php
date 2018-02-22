@@ -12,10 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app1.css') }}" rel="stylesheet">
     <link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-    <style type="text/css">
-
-    </style>
 </head>
 <body>
     <div id="app">
@@ -39,12 +37,12 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
+                    <!--<ul class="nav navbar-nav">
                         &nbsp;
-                    </ul>
+                    </ul>-->
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right navb">
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
@@ -59,7 +57,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     Inventory <span class="caret"></span>
                                 </a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu dropdown-menu-left">
                                     <li><a href="{{ route('stockInventory') }}">Warehouse</a></li>
                                     <li><a href="{{ route('tosite') }}">To Site</a></li>
                                 </ul>
@@ -70,7 +68,7 @@
                                         Generate Report <span class="caret"></span>
                                     </a>
 
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu dropdown-menu-left">
                                         <li><a href="{{ route('stockReport') }}">Stock</a></li>
                                         <li><a href="{{ route('site1Report') }}">Site 1</a></li>
                                         <li><a href="{{ route('site2Report') }}">Site 2</a></li>
@@ -82,7 +80,7 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu dropdown-menu-left">
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

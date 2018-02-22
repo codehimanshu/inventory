@@ -12,6 +12,15 @@
 
         <!-- Styles -->
         <style>
+            html{
+                background-image: url("{{ URL::to('construction.jpg') }}"); 
+                opacity: 0.2;
+                background-repeat: no-repeat; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                 -o-background-size: cover;
+                background-size: cover;
+            }
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -62,6 +71,16 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            div a{
+                font-weight: bold;
+                font-size: 1.2em;
+                color: white;
+            }
+            div a:hover{
+                background-color: white;
+                color: black;
+                font-size: 1.3em;
+            }
         </style>
     </head>
     <body>
@@ -78,7 +97,7 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md"">
                     Sukhmani <br><b>BuildWell</b>
                 </div>
             </div>
