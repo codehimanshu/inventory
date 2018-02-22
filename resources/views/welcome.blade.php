@@ -12,19 +12,10 @@
 
         <!-- Styles -->
         <style>
-            html{
-                background-image: url("{{ URL::to('Construction.jpg') }}"); 
-                opacity: 0.3;
-                background-repeat: no-repeat; 
-                -webkit-background-size: cover;
-                -moz-background-size: cover;
-                 -o-background-size: cover;
-                background-size: cover;
-            }
+            
             html, body {
                 background-color: #fff;
-                /*color: #636b6f;*/
-                color: black;
+                color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -99,7 +90,7 @@
 
             <div class="content">
                 <div class="title m-b-md"">
-                    <b>Sukhmani</b> <br><b>BuildWell</b>
+                    Sukhmani<br><b>BuildWell</b>
                 </div>
             </div>
         </div>
