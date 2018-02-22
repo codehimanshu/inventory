@@ -105,10 +105,26 @@ class HomeController extends Controller
                         $stock->site1_amt += max($amounts[$key], $quantities[$key]*$costings[$key]);
                         $stock->dated = $dates[$key];
                         $stock->save();
+
+                        $log = new Log;
+                        $log->subcategory_id = $categories[$key];
+                        $log->to = "site1";
+                        $log->qty = $quantities[$key];
+                        $log->costing = $costings[$key];
+                        $log->amount = $amounts[$key];
+                        $log->save();
                     }else if($quantities[$key] == 0){
                         $stock->site1_amt += max($amounts[$key], $quantities[$key]*$costings[$key]);
                         $stock->dated = $dates[$key];
                         $stock->save();
+
+                        $log = new Log;
+                        $log->subcategory_id = $categories[$key];
+                        $log->to = "site1";
+                        $log->qty = $quantities[$key];
+                        $log->costing = $costings[$key];
+                        $log->amount = $amounts[$key];
+                        $log->save();
                     }else{
                         echo "2";
                         array_push($errors, $cat . $quantity[$key] );
@@ -123,10 +139,26 @@ class HomeController extends Controller
                         $stock->site2_amt += max($amounts[$key], $quantities[$key]*$costings[$key]);
                         $stock->dated = $dates[$key];
                         $stock->save();
+
+                        $log = new Log;
+                        $log->subcategory_id = $categories[$key];
+                        $log->to = "site2";
+                        $log->qty = $quantities[$key];
+                        $log->costing = $costings[$key];
+                        $log->amount = $amounts[$key];
+                        $log->save();
                     }else if($quantities[$key] == 0){
                         $stock->site2_amt += max($amounts[$key], $quantities[$key]*$costings[$key]);
                         $stock->dated = $dates[$key];
                         $stock->save();
+
+                        $log = new Log;
+                        $log->subcategory_id = $categories[$key];
+                        $log->to = "site2";
+                        $log->qty = $quantities[$key];
+                        $log->costing = $costings[$key];
+                        $log->amount = $amounts[$key];
+                        $log->save();
                     }else{
                         echo $stock->stock_qty;
                         array_push($errors, $cat . $quantities[$key] );
