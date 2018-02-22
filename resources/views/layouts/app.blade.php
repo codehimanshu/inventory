@@ -13,6 +13,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <style type="text/css">
+
+    </style>
 </head>
 <body>
     <div id="app">
@@ -52,12 +55,9 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     Inventory <span class="caret"></span>
                                 </a>
-
                                 <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('stockInventory') }}">Warehouse</a>
-                                        <a href="{{ route('tosite') }}">To Site</a>
-                                    </li>
+                                    <li><a href="{{ route('stockInventory') }}">Warehouse</a></li>
+                                    <li><a href="{{ route('tosite') }}">To Site</a></li>
                                 </ul>
                             </li>
                             @if(Auth::user()->role == 1)
@@ -67,11 +67,9 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="{{ route('stockReport') }}">Stock</a>
-                                            <a href="{{ route('site1Report') }}">Site 1</a>
-                                            <a href="{{ route('site2Report') }}">Site 2</a>
-                                        </li>
+                                        <li><a href="{{ route('stockReport') }}">Stock</a></li>
+                                        <li><a href="{{ route('site1Report') }}">Site 1</a></li>
+                                        <li><a href="{{ route('site2Report') }}">Site 2</a></li>
                                     </ul>
                                 </li>
                             @endif
