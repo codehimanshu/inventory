@@ -42,14 +42,16 @@
 
 <div class="container">
     <div class="row">
-        @if(count($errors))
-            <div class="col-md-10 col-md-offset-1">
-                <div class="alert alert-danger">
-                  <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+        @if(session('errors'))
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="alert alert-danger">
+                      <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+                        @foreach(session('errors') as $error)
+                            {{$error}}<br>
+                        @endforeach
+                    </div>
                 </div>
-                @foreach($errors as $error)
-
-                @endforeach
             </div>
         @endif
         <center><h2>To Site</h2></center>
