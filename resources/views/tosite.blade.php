@@ -6,26 +6,27 @@
         $("#table").append('\
                         <tr>\
                             <td>\
-                                <select class="form-control" name="category[]">\
-                                    @foreach($categories as $category)\
-                                        <option>{{$category->category}}</option>\
-                                    @endforeach\
-                                </select>\
+                                <input type="text" class="form-control" name="category[]" required="true" list="categories">\
                             </td>\
+                            <datalist id="categories">\
+                                @foreach($categories as $category)\
+                                    <option>{{$category->id}}. {{$category->subcategory}} ({{$category->category->category}})</option>\
+                                @endforeach   \
+                            </datalist>\
                             <td>\
-                                <select class="form-control" name="site[]">\
+                                <select class="form-control">\
                                     <option>Site 1</option>\
                                     <option>Site 2</option>\
                                 </select>\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="costing[]" required="true">\
+                                <input type="number" class="form-control" name="quantity[]" step="0" >\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="quantity[]" step="0" required="true">\
+                                <input type="number" class="form-control" name="costing[]" >\
                             </td>\
                             <td>\
-                                <input type="number" class="form-control" name="comment[]" list="comment" required="true">\
+                                <input type="number" class="form-control" name="amount[]" >\
                             </td>\
                             <td>\
                                 <input type="date" class="form-control" name="date[]" required="true">\
@@ -50,9 +51,9 @@
                         <tr>
                             <th>Category Name</th>
                             <th>To Site</th>
-                            <th>Costing</th>
                             <th>Quantity</th>
-                            <th>Comment</th>
+                            <th>Costing</th>
+                            <th>Amount</th>
                             <th>Dated</th>
                             <th>Delete</th>
                         </tr>
@@ -60,12 +61,13 @@
                     <tbody id="table">
                         <tr>
                             <td>
-                                <select class="form-control" name="category[]">
-                                    @foreach($categories as $category)
-                                        <option>{{$category->category}}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" class="form-control" name="category[]" required="true" list="categories">
                             </td>
+                            <datalist id="categories">
+                                @foreach($categories as $category)
+                                    <option>{{$category->id}}. {{$category->subcategory}} ({{$category->category->category}})</option>
+                                @endforeach   
+                            </datalist>
                             <td>
                                 <select class="form-control" name="site[]">
                                     <option>Site 1</option>
@@ -73,19 +75,14 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="number" class="form-control" name="costing[]" required="true">
+                                <input type="number" class="form-control" name="quantity[]" step="0" >
                             </td>
                             <td>
-                                <input type="number" class="form-control" name="quantity[]" step="0" required="true">
+                                <input type="number" class="form-control" name="costing[]" >
                             </td>
                             <td>
-                                <input type="number" class="form-control" name="comment[]" list="comment" required="true">
+                                <input type="number" class="form-control" name="amount[]" >
                             </td>
-                            <datalist id="comments">
-                                @foreach($comments as $comment)
-                                    <option>{{ $comment }}</option>
-                                @endforeach
-                            </datalist>
                             <td>
                                 <input type="date" class="form-control" name="date[]" required="true">
                             </td>

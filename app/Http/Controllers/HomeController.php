@@ -76,43 +76,66 @@ class HomeController extends Controller
     }
 
     public function tosite() {
-        $categories = Category::get();
-        $comments = Stock::pluck('comment')->toArray();
-        return view('tosite', compact('categories','comments'));
+        $categories = SubCategory::get();
+        return view('tosite', compact('categories'));
     }
 
     public function saveToSite(Request $request) {
         $categories = $request->category;
         $sites = $request->site;
-        $costings = $request->costing;
         $quantities = $request->quantity;
-        $comments = $request->comment;
+        $costings = $request->costing;
+        $amounts = $request->amount;
         $dates = $request->date;
         $errors = [];
         foreach ($categories as $key => $category) {
-            $stock = Stock::where('category',$categories[$key])->where('comment',$comments[$key])->get();
-            if(count($stock)== 0){
-                array_push($errors, $categories[$key] .  $comments[$key] . $quantity[$key] );
+            $cat = $categories[$key];
+            $categories[$key] = substr($categories[$key],0,strpos($categories[$key], '.'));
+            $stock = Stock::where('subcategory_id',$categories[$key])->get();
+            if(count($stock) ==0){
+                array_push($errors, $cat . $quantity[$key] );
                 continue;
-            }
+            }else
+                $stock = $stock[0];
             if($sites[$key] == "Site 1"){
-                if($categories[$key]!="" && $costings[$key]!="" && $quantities[$key]!="" && $dates[$key]!="" && $comments[$key]){
-                    $tosite = Site1::where('category',$categories[$key])->where('comment',$comments[$key])->get();
-                    if(count($tosite)!=0)
-                        $tosite = $tosite[0];
-                    else
-                        $tosite = new Site1;
-                    $stock->category = $categories[$key];
-                    $stock->costing = $costings[$key];
-                    $stock->quantity = $quantities[$key];
-                    $stock->dated = $dates[$key];
-                    $stock->save();                    
+                if($categories[$key]!="" && $dates[$key]!=""){
+                    if($stock->stock_qty >= (int)$quantities[$key]){
+                        $stock->stock_qty -= $quantities[$key];
+                        $stock->site1_qty += $quantities[$key];
+                        $stock->site1_amt += max($amounts[$key], $quantities[$key]*$costings[$key]);
+                        $stock->dated = $dates[$key];
+                        $stock->save();
+                    }else if($quantities[$key] == 0){
+                        $stock->site1_amt += max($amounts[$key], $quantities[$key]*$costings[$key]);
+                        $stock->dated = $dates[$key];
+                        $stock->save();
+                    }else{
+                        echo "2";
+                        array_push($errors, $cat . $quantity[$key] );
+                        continue;
+                    }
                 }
             }else {
-                
+                if($categories[$key]!="" && $dates[$key]!=""){
+                    if($stock->stock_qty >= (int)$quantities[$key]){
+                        $stock->stock_qty -= $quantities[$key];
+                        $stock->site2_qty += $quantities[$key];
+                        $stock->site2_amt += max($amounts[$key], $quantities[$key]*$costings[$key]);
+                        $stock->dated = $dates[$key];
+                        $stock->save();
+                    }else if($quantities[$key] == 0){
+                        $stock->site2_amt += max($amounts[$key], $quantities[$key]*$costings[$key]);
+                        $stock->dated = $dates[$key];
+                        $stock->save();
+                    }else{
+                        echo $stock->stock_qty;
+                        array_push($errors, $cat . $quantities[$key] );
+                        continue;
+                    }
+                }
             }
         }
-        return redirect('/site1Report');
+        return redirect('/tosite')->with($errors);
     }
 
     public function site1Report() {
@@ -123,7 +146,7 @@ class HomeController extends Controller
     }
 
     public function site2Inventory() {
-        $categories = Category::get();
+        $categories = SubCategory::get();
         return view('site2Inventory', compact('categories'));
     }
 
