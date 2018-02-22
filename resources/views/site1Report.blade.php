@@ -4,10 +4,10 @@
 
 <div class="container">
 	<div class="row">
-        <center><h2>Site 1 Report</h2></center>
+        <center><h2><b>Site 1 Report</b></h2></center>
 		<div class="col-md-10 col-md-offset-1">
 	        <span style="float: right;"><h3>Total Cost: {{ $total_amt }}</h3></span>
-			<table class="table datatable" id="table2excel">
+			<table class="table datatable hover table-striped display" id="table2excel">
 			    <thead>
 			        <tr>
 			            <th>S No</th>
