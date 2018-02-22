@@ -6,6 +6,7 @@
 	<div class="row">
         <center><h2>Warehouse Stock</h2></center>
 		<div class="col-md-10 col-md-offset-1">
+	        <span style="float: right;"><h3>Total Cost: {{ $total_amt }}</h3></span>
 			<table class="table datatable" id="table2excel">
 			    <thead>
 			        <tr>

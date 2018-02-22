@@ -72,7 +72,8 @@ class HomeController extends Controller
         if(Auth::user()->role != 1)
             return redirect('/home');
         $stocks = Stock::with('subcategory')->get();
-        return view('stockReport', compact('stocks'));
+        $total_amt = Stock::sum('stock_amt');
+        return view('stockReport', compact('stocks','total_amt'));
     }
 
     public function tosite() {
@@ -174,13 +175,15 @@ class HomeController extends Controller
         if(Auth::user()->role != 1)
             return redirect('/home');
         $stocks = Stock::with('subcategory')->get();
-        return view('site1Report', compact('stocks'));
+        $total_amt = Stock::sum('site1_amt');
+        return view('site1Report', compact('stocks','total_amt'));
     }
 
     public function site2Report() {
         if(Auth::user()->role != 1)
             return redirect('/home');
         $stocks = Stock::with('subcategory')->get();
-        return view('site2Report', compact('stocks'));
+        $total_amt = Stock::sum('site2_amt');
+        return view('site2Report', compact('stocks','total_amt'));
     }
 }
