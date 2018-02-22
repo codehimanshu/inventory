@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\SubCategory;
 use App\Category;
 use App\Stock;
+use App\Log;
 use Auth;
 
 class HomeController extends Controller
@@ -55,6 +56,14 @@ class HomeController extends Controller
             $stock->stock_amt += max($amounts[$key], $quantities[$key]*$costings[$key]);
             $stock->dated = $dates[$key];
             $stock->save();
+
+            $log = new Log;
+            $log->subcategory_id = $categories[$key];
+            $log->to = "stock";
+            $log->qty = $quantities[$key];
+            $log->costing = $costings[$key];
+            $log->amount = $amounts[$key];
+            $log->save();
         }
         return redirect('/stockReport');
     }
