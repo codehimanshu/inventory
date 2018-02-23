@@ -39,7 +39,8 @@
 			    	@endforeach
 			    </tbody>
 			</table>
-            <center><input type="submit" class="form-control btn btn-primary" id="export" style="width: 100px;" name="submit" value="Download"></center>
+			<br>
+            <center><input type="submit" class="form-control btn btn-primary" id="export" style="width: 100px;margin-bottom: 40px;" name="submit" value="Download"></center>
 		</div>
 	</div>
 </div>

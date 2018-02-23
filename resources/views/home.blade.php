@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="margin-bottom: 30px;">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin-bottom: 30px;">
             <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
               <div class="card-block">
                 <h4 class="card-title">Warehouse</h4>
@@ -12,7 +12,7 @@
               </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin-bottom: 30px;">
             <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
               <div class="card-block">
                 <h4 class="card-title">Add to site</h4>
@@ -24,8 +24,8 @@
     </div>
     <br>
     @if(Auth::user()->role == 1)
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row" style="margin-bottom: 30px;">
+            <div class="col-md-4" style="margin-bottom: 30px;">
                 <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
                   <div class="card-block">
                     <h4 class="card-title">Warehouse</h4>
@@ -34,7 +34,7 @@
                   </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" style="margin-bottom: 30px;">
                 <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
                   <div class="card-block">
                     <h4 class="card-title">Site 1</h4>
