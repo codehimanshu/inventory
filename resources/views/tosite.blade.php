@@ -2,21 +2,21 @@
 
 @section('content')
 <script type="text/javascript">
+    var count = 1;
     function addfield() {
         $("#table").append('\
-                        <tr>\
+                        <tr count='+count+'>\
                             <td>\
-                                <input type="text" class="form-control" name="category[]" required="true" list="categories">\
+                                <select class="form-control category" name="categories[]">\
+                                    <option >Select Category</option>\
+                                    @foreach($cats as $cat)\
+                                        <option value="{{$cat->id}}">{{$cat->category}}</option>\
+                                    @endforeach\
+                                </select>\
                             </td>\
-                            <datalist id="categories">\
-                                @foreach($categories as $category)\
-                                    <option>{{$category->id}}. {{$category->subcategory}} ({{$category->category->category}})</option>\
-                                @endforeach   \
-                            </datalist>\
                             <td>\
-                                <select class="form-control">\
-                                    <option>Site 1</option>\
-                                    <option>Site 2</option>\
+                                <select class="form-control subcategory" name="subcategories[]">\
+                                    <option disabled="true">Select Category</option>\
                                 </select>\
                             </td>\
                             <td>\
@@ -36,6 +36,7 @@
                             </td>\
                         </tr>\
             ')
+        count++;
         return;   
     }    
 </script>
@@ -70,29 +71,28 @@
                 <table class="table table-hover table-striped table-condensed">
                     <thead>
                         <tr>
-                            <th style="width: 20%">Category Name</th>
-                            <th style="width: 12%;">To Site</th>
+                            <th>Category</th>
+                            <th>Sub Category</th>
                             <th>Quantity</th>
-                            <th>Rate (in Rs)</th>
+                            <th>Rate/Unit (in Rs)</th>
                             <th>Total Cost (in Rs)</th>
                             <th>Dated</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody id="table">
-                        <tr>
+                        <tr count="0">
                             <td>
-                                <input type="text" class="form-control" name="category[]" required="true" list="categories">
+                                <select class="form-control category" name="categories[]">
+                                    <option >Select Category</option>
+                                    @foreach($cats as $cat)
+                                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+                                    @endforeach
+                                </select>
                             </td>
-                            <datalist id="categories">
-                                @foreach($categories as $category)
-                                    <option>{{$category->id}}. {{$category->subcategory}} ({{$category->category->category}})</option>
-                                @endforeach   
-                            </datalist>
                             <td>
-                                <select class="form-control" name="site[]">
-                                    <option>Site 1</option>
-                                    <option>Site 2</option>
+                                <select class="form-control subcategory" name="subcategories[]">
+                                    <option disabled="true">Select Category</option>
                                 </select>
                             </td>
                             <td>

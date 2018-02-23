@@ -111,7 +111,7 @@
 
         $(document).ready(function() {
             $('.datatable').DataTable();
-        } );
+        });
 
         $(document).on("click", ".deleteRow", function(){
             $(this).closest('tr').remove();
@@ -123,6 +123,27 @@
             console.log(costing);
             console.log(quantity);
             $(this).closest('tr').find('.amount').val(costing*quantity);
+        });
+
+        $(document).on("change", ".category", function(){
+            category = $(this).val();
+            c = $(this).closest('tr').attr('count');
+            $.ajax({
+                type: 'GET',
+                url: 'getsubcategory',
+                data: {
+                    'category' : category,
+                    'c' : c
+                },
+                success: function(data){
+                    console.log(data);
+                    $("tr[count='"+data[1]+"']").find(".subcategory").html('');
+                    data[0].forEach(function(d){
+                        $("tr[count='"+data[1]+"']").find(".subcategory").append('<option value='+d.id+'>'+d.subcategory+'</option>');
+                        console.log(d);
+                    })
+                }
+            });
         });
     </script>
 

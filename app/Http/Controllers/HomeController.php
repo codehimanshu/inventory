@@ -40,13 +40,12 @@ class HomeController extends Controller
     }
 
     public function saveStockInventory(Request $request) {
-        $categories = $request->category;
+        $categories = $request->subcategories;
         $quantities = $request->quantity;
         $costings = $request->costing;
         $amounts = $request->amount;
         $dates = $request->date;
         foreach ($categories as $key => $category) {
-            $categories[$key] = substr($categories[$key],0,strpos($categories[$key], '.'));
             $stock = Stock::where('subcategory_id',$categories[$key])->get();
             if(count($stock) ==0){
                 $stock = new Stock;
@@ -58,6 +57,7 @@ class HomeController extends Controller
             $stock->stock_qty += $quantities[$key];
             $stock->stock_amt += max($amounts[$key], $quantities[$key]*$costings[$key]);
             $stock->dated = $dates[$key];
+            var_dump($stock);
             $stock->save();
 
             $log = new Log;
@@ -83,8 +83,9 @@ class HomeController extends Controller
 
     public function tosite(Request $request) {
         $categories = SubCategory::get();
+        $cats = Category::get();
         $title = "inventory";
-        return view('tosite', compact('categories','title'));
+        return view('tosite', compact('categories','title','cats'));
     }
 
     public function saveToSite(Request $request) {
@@ -199,5 +200,12 @@ class HomeController extends Controller
         $total_amt = Stock::sum('site2_amt');
         $title = "report";
         return view('site2Report', compact('stocks','total_amt','title'));
+    }
+
+    public function getSubCategory(Request $request){
+        $category_id = $request->category;
+        $c = $request->c;
+        $subcategories = SubCategory::where('category_id',$category_id)->get();
+        return [$subcategories,$c];       
     }
 }
