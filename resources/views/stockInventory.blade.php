@@ -36,7 +36,7 @@
         <form method="POST" action="{{ route('saveStockInventory') }}">
             {{ csrf_field() }}
             <div class="col-md-10 col-md-offset-1" style="overflow-x:auto;">
-                <table class="table hover table-striped display">
+                <table class="table table-hover table-striped table-condensed">
                     <thead>
                         <tr>
                             <th>Category</th>

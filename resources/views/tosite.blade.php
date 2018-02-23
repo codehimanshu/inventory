@@ -67,11 +67,11 @@
         <form method="POST" action="{{ route('saveToSite') }}">
             {{ csrf_field() }}
             <div class="col-md-10 col-md-offset-1" style="overflow-x:auto;">
-                <table class="table hover table-striped display">
+                <table class="table table-hover table-striped table-condensed">
                     <thead>
                         <tr>
-                            <th>Category Name</th>
-                            <th>To Site</th>
+                            <th style="width: 20%">Category Name</th>
+                            <th style="width: 12%;">To Site</th>
                             <th>Quantity</th>
                             <th>Rate (in Rs)</th>
                             <th>Total Cost (in Rs)</th>
