@@ -42,7 +42,7 @@
                             <th style="width: 20%;">Category</th>
                             <th style="width: 12%;">Quantity</th>
                             <th>Rate< (in Rs)</th>
-                            <th>Amount (in Rs)</th>
+                            <th>Total Cost (in Rs)</th>
                             <th>Dated</th>
                             <th>Delete</th>
                         </tr>
