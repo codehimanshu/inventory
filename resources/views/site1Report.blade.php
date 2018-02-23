@@ -1,4 +1,4 @@
-@extends('layouts.app')
+ style="text-align: center!important;"@extends('layouts.app')
 
 @section('content')
 
@@ -7,14 +7,14 @@
         <center><h2><b>Site 1 Report</b></h2></center>
 		<div class="col-md-10 col-md-offset-1" style="overflow-x:auto;">
 	        <span style="float: right;"><h3>Total Cost: {{ $total_amt }}</h3></span>
-			<table class="table datatable hover table-striped display" id="table2excel">
+			<table class="table datatable hover table-striped display" id="table2excel" style="text-align: center!important;">
 			    <thead>
 			        <tr>
-			            <th>S No</th>
-			            <th>Category</th>
-			            <th>Quantity</th>
-			            <th>Total Cost (in Rs)</th>
-			            <th>Dated</th>
+			            <th style="text-align: center!important;">S No</th>
+			            <th style="text-align: center!important;">Category</th>
+			            <th style="text-align: center!important;">Quantity</th>
+			            <th style="text-align: center!important;">Total Cost (in Rs)</th>
+			            <th style="text-align: center!important;">Dated</th>
 			        </tr>
 			    </thead>
 			    <tbody>

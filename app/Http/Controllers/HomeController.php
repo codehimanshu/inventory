@@ -8,6 +8,7 @@ use App\Category;
 use App\Stock;
 use App\Log;
 use Auth;
+use AWS;
 
 class HomeController extends Controller
 {
@@ -40,13 +41,12 @@ class HomeController extends Controller
     }
 
     public function saveStockInventory(Request $request) {
-        $categories = $request->category;
+        $categories = $request->subcategories;
         $quantities = $request->quantity;
         $costings = $request->costing;
         $amounts = $request->amount;
         $dates = $request->date;
         foreach ($categories as $key => $category) {
-            $categories[$key] = substr($categories[$key],0,strpos($categories[$key], '.'));
             $stock = Stock::where('subcategory_id',$categories[$key])->get();
             if(count($stock) ==0){
                 $stock = new Stock;
@@ -58,6 +58,7 @@ class HomeController extends Controller
             $stock->stock_qty += $quantities[$key];
             $stock->stock_amt += max($amounts[$key], $quantities[$key]*$costings[$key]);
             $stock->dated = $dates[$key];
+            var_dump($stock);
             $stock->save();
 
             $log = new Log;
@@ -68,6 +69,17 @@ class HomeController extends Controller
             $log->amount = $amounts[$key];
             $log->save();
         }
+
+        $mobiles = [9654379609,9235553838,9582269794];
+        foreach ($mobiles as $mobile) {
+                $sns = AWS::createClient('sns');
+                $args = array();
+                $args['SMSType'] = "transactional";
+                $args['SenderID'] = "anurag";
+                $args['Message'] = "The warehouse entries have been changed, Please have a look.";
+                $args['PhoneNumber'] = "+91-". $mobile;
+                $result = $sns->publish($args);
+            }
         $request->session()->put('success1',"success");
         return redirect('/stockReport');
     }
@@ -83,14 +95,15 @@ class HomeController extends Controller
 
     public function tosite(Request $request) {
         $categories = SubCategory::get();
+        $cats = Category::get();
         $title = "inventory";
-        return view('tosite', compact('categories','title'));
+        return view('tosite', compact('categories','title','cats'));
     }
 
     public function saveToSite(Request $request) {
         $request->session()->pull('errors');
         $request->session()->pull('success');
-        $categories = $request->category;
+        $categories = $request->subcategories;
         $sites = $request->site;
         $quantities = $request->quantity;
         $costings = $request->costing;
@@ -98,11 +111,10 @@ class HomeController extends Controller
         $dates = $request->date;
         $errors = [];
         foreach ($categories as $key => $category) {
-            $cat = $categories[$key];
-            $categories[$key] = substr($categories[$key],0,strpos($categories[$key], '.'));
             $stock = Stock::where('subcategory_id',$categories[$key])->get();
             if(count($stock) ==0){
-                array_push($errors, $cat . $quantities[$key] );
+                $subcategory = SubCategory::where('subcategory_id',$categories[$key])->get();
+                array_push($errors, $subcategory[0]->subcategory . " Qunatity: ". $quantities[$key] );
                 continue;
             }else
                 $stock = $stock[0];
@@ -136,7 +148,7 @@ class HomeController extends Controller
                         $log->save();
                     }else{
                         echo "2";
-                        array_push($errors, $cat . $quantities[$key] );
+                        array_push($errors, $stock->subcategory->category->category . " Quantity: " . $quantities[$key] );
                         continue;
                     }
                 }
@@ -170,12 +182,23 @@ class HomeController extends Controller
                         $log->save();
                     }else{
                         echo $stock->stock_qty;
-                        array_push($errors, $cat . $quantities[$key] );
+                        array_push($errors, $stock->subcategory->category->category . " Quantity: " . $quantities[$key] );
                         continue;
                     }
                 }
             }
-        }
+
+            $mobiles = [9654379609,9235553838,9582269794];
+            foreach ($mobiles as $mobile) {
+                    $sns = AWS::createClient('sns');
+                    $args = array();
+                    $args['SMSType'] = "transactional";
+                    $args['SenderID'] = "anurag";
+                    $args['Message'] = "The items have been moved to Sites. Please have a look.";
+                    $args['PhoneNumber'] = "+91-". $mobile;
+                    $result = $sns->publish($args);
+                }
+            }
         if(count($errors))
             $request->session()->put('errors',$errors);
         else
@@ -199,5 +222,12 @@ class HomeController extends Controller
         $total_amt = Stock::sum('site2_amt');
         $title = "report";
         return view('site2Report', compact('stocks','total_amt','title'));
+    }
+
+    public function getSubCategory(Request $request){
+        $category_id = $request->category;
+        $c = $request->c;
+        $subcategories = SubCategory::where('category_id',$category_id)->get();
+        return [$subcategories,$c];       
     }
 }

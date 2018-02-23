@@ -2,11 +2,21 @@
 
 @section('content')
 <script type="text/javascript">
+    var count = 1;
     function addfield() {
         $("#table").append('\
-                        <tr>\
+                        <tr count='+count+'>\
                             <td>\
-                                <input type="text" class="form-control" name="category[]" required="true" list="categories">\
+                                <select class="form-control category" name="categories[]">\
+                                    @foreach($cats as $cat)\
+                                        <option value="{{$cat->id}}">{{$cat->category}}</option>\
+                                    @endforeach\
+                                </select>\
+                            </td>\
+                            <td>\
+                                <select class="form-control subcategory" name="subcategories[]">\
+                                    <option disabled="true">Select Category</option>\
+                                </select>\
                             </td>\
                             <td>\
                                 <input type="number" class="form-control quantity" name="quantity[]" step="0">\
@@ -25,6 +35,7 @@
                             </td>\
                         </tr>\
             ')
+        count++;
         return;   
     }
 
@@ -42,29 +53,27 @@
                             <th>Category</th>
                             <th>Sub Category</th>
                             <th>Quantity</th>
-                            <th>Rate (in Rs)</th>
+                            <th>Rate/Unit (in Rs)</th>
                             <th>Total Cost (in Rs)</th>
                             <th>Dated</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody id="table">
-                        <tr>
+                        <tr count="0">
                             <td>
-                                <select class="form-control" name="categories[]">
+                                <select class="form-control category" name="categories[]">
+                                    <option >Select Category</option>
                                     @foreach($cats as $cat)
                                         <option value="{{$cat->id}}">{{$cat->category}}</option>
                                     @endforeach
                                 </select>
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="category[]" required="true" list="subcategories">
+                                <select class="form-control subcategory" name="subcategories[]">
+                                    <option disabled="true">Select Category</option>
+                                </select>
                             </td>
-                            <datalist id="categories">
-                                @foreach($categories as $category)
-                                    <option>{{$category->id}}. {{$category->subcategory}} ({{$category->category->category}})</option>
-                                @endforeach   
-                            </datalist>
                             <td>
                                 <input type="number" class="form-control quantity" name="quantity[]" step="0" >
                             </td>

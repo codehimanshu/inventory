@@ -13,17 +13,18 @@
                 </div>
             </div>
         @endif
+        <?php session()->forget('success1'); ?>
         <center><h2>Warehouse Stock</h2></center>
 		<div class="col-md-10 col-md-offset-1" style="overflow-x:auto;">
 	        <span style="float: right;"><h3>Total Cost: {{ $total_amt }}</h3></span>
-			<table class="table datatable hover table-striped display" id="table2excel">
+			<table class="table datatable hover table-striped display" style="text-align: center;" id="table2excel">
 			    <thead>
-			        <tr>
-			            <th>S No</th>
-			            <th>Category</th>
-			            <th>Quantity</th>
-			            <th>Total Cost (in Rs)</th>
-			            <th>Dated</th>
+			        <tr style="text-align: center!important;">
+			            <th style="text-align: center!important;">S No</th>
+			            <th style="text-align: center!important;">Category</th>
+			            <th style="text-align: center!important;">Quantity</th>
+			            <th style="text-align: center!important;">Total Cost (in Rs)</th>
+			            <th style="text-align: center!important;">Dated</th>
 			        </tr>
 			    </thead>
 			    <tbody>
