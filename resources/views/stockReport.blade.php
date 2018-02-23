@@ -13,6 +13,7 @@
                 </div>
             </div>
         @endif
+        <?php session()->forget('success1'); ?>
         <center><h2>Warehouse Stock</h2></center>
 		<div class="col-md-10 col-md-offset-1" style="overflow-x:auto;">
 	        <span style="float: right;"><h3>Total Cost: {{ $total_amt }}</h3></span>

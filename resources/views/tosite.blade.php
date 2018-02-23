@@ -64,6 +64,7 @@
                 </div>
             </div>
         @endif
+        <?php session()->forget('errors');session()->forget('success'); ?>
         <center><h2>To Site</h2></center>
         <form method="POST" action="{{ route('saveToSite') }}">
             {{ csrf_field() }}

@@ -91,7 +91,7 @@ class HomeController extends Controller
     public function saveToSite(Request $request) {
         $request->session()->pull('errors');
         $request->session()->pull('success');
-        $categories = $request->category;
+        $categories = $request->subcategories;
         $sites = $request->site;
         $quantities = $request->quantity;
         $costings = $request->costing;
@@ -99,11 +99,10 @@ class HomeController extends Controller
         $dates = $request->date;
         $errors = [];
         foreach ($categories as $key => $category) {
-            $cat = $categories[$key];
-            $categories[$key] = substr($categories[$key],0,strpos($categories[$key], '.'));
             $stock = Stock::where('subcategory_id',$categories[$key])->get();
             if(count($stock) ==0){
-                array_push($errors, $cat . $quantities[$key] );
+                $subcategory = SubCategory::where('subcategory_id',$categories[$key])->get();
+                array_push($errors, $subcategory[0]->subcategory . " Qunatity: ". $quantities[$key] );
                 continue;
             }else
                 $stock = $stock[0];
@@ -137,7 +136,7 @@ class HomeController extends Controller
                         $log->save();
                     }else{
                         echo "2";
-                        array_push($errors, $cat . $quantities[$key] );
+                        array_push($errors, $stock->subcategory->category->category . " Quantity: " . $quantities[$key] );
                         continue;
                     }
                 }
@@ -171,7 +170,7 @@ class HomeController extends Controller
                         $log->save();
                     }else{
                         echo $stock->stock_qty;
-                        array_push($errors, $cat . $quantities[$key] );
+                        array_push($errors, $stock->subcategory->category->category . " Quantity: " . $quantities[$key] );
                         continue;
                     }
                 }
