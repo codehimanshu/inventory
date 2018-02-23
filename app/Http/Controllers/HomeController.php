@@ -34,8 +34,9 @@ class HomeController extends Controller
 
     public function stockInventory() {
         $categories = SubCategory::get();
+        $cats = Category::get();
         $title = "inventory";
-        return view('stockInventory', compact('categories','title'));
+        return view('stockInventory', compact('categories','title','cats'));
     }
 
     public function saveStockInventory(Request $request) {
@@ -67,7 +68,7 @@ class HomeController extends Controller
             $log->amount = $amounts[$key];
             $log->save();
         }
-        $request->session()->put('success',"success");
+        $request->session()->put('success1',"success");
         return redirect('/stockReport');
     }
 

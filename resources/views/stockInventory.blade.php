@@ -40,6 +40,7 @@
                     <thead>
                         <tr>
                             <th>Category</th>
+                            <th>Sub Category</th>
                             <th>Quantity</th>
                             <th>Rate< (in Rs)</th>
                             <th>Total Cost (in Rs)</th>
@@ -50,7 +51,14 @@
                     <tbody id="table">
                         <tr>
                             <td>
-                                <input type="text" class="form-control" name="category[]" required="true" list="categories">
+                                <select class="form-control" name="categories[]">
+                                    @foreach($cats as $cat)
+                                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+                                    @endforeach
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="category[]" required="true" list="subcategories">
                             </td>
                             <datalist id="categories">
                                 @foreach($categories as $category)

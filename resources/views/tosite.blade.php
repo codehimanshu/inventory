@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="alert alert-danger">
-                      <strong>Danger!</strong> Indicates a dangerous or potentially negative action.<br>
+                      <strong>Danger!</strong> The following items could not be moved to Site.<br>
                         @foreach(session('errors') as $error)
                             {{$error}}<br>
                         @endforeach
