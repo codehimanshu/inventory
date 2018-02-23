@@ -4,6 +4,15 @@
 
 <div class="container">
 	<div class="row">
+        @if(session('success'))
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="alert alert-success">
+                      <strong>Success!</strong> Stock created.
+                    </div>
+                </div>
+            </div>
+        @endif
         <center><h2>Warehouse Stock</h2></center>
 		<div class="col-md-10 col-md-offset-1" style="overflow-x:auto;">
 	        <span style="float: right;"><h3>Total Cost: {{ $total_amt }}</h3></span>
@@ -13,7 +22,7 @@
 			            <th>S No</th>
 			            <th>Category</th>
 			            <th>Quantity</th>
-			            <th>Amount</th>
+			            <th>Amount (in Rs)</th>
 			            <th>Dated</th>
 			        </tr>
 			    </thead>

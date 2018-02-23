@@ -67,10 +67,11 @@ class HomeController extends Controller
             $log->amount = $amounts[$key];
             $log->save();
         }
+        $request->session()->put('success',"success");
         return redirect('/stockReport');
     }
 
-    public function stockReport() {
+    public function stockReport(Request $request) {
         if(Auth::user()->role != 1)
             return redirect('/home');
         $stocks = Stock::with('subcategory')->get();
@@ -79,13 +80,15 @@ class HomeController extends Controller
         return view('stockReport', compact('stocks','total_amt','title'));
     }
 
-    public function tosite() {
+    public function tosite(Request $request) {
         $categories = SubCategory::get();
         $title = "inventory";
         return view('tosite', compact('categories','title'));
     }
 
     public function saveToSite(Request $request) {
+        $request->session()->pull('errors');
+        $request->session()->pull('success');
         $categories = $request->category;
         $sites = $request->site;
         $quantities = $request->quantity;
@@ -172,7 +175,11 @@ class HomeController extends Controller
                 }
             }
         }
-        return redirect('/tosite')->with($errors);
+        if(count($errors))
+            $request->session()->put('errors',$errors);
+        else
+            $request->session()->put('success',"success");
+        return redirect('/tosite');
     }
 
     public function site1Report() {
