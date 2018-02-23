@@ -12,10 +12,19 @@
 
         <!-- Styles -->
         <style>
-            
+            html{
+                background-image: url("{{ URL::to('Construction_3.jpg') }}"); 
+                opacity: 0.4;
+                background-repeat: no-repeat; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                 -o-background-size: cover;
+                background-size: cover;
+            }
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                /*color: #636b6f;*/
+                color: black;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -53,7 +62,7 @@
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 12px;
+                font-size: 1.2em;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -61,7 +70,12 @@
             }
 
             .m-b-md {
+                padding: 0 3%;
                 margin-bottom: 30px;
+                font-size: 380%;
+            }
+            .m-b-md:hover{
+                font-size: 390%;
             }
             div a{
                 font-weight: bold;
@@ -90,7 +104,7 @@
 
             <div class="content">
                 <div class="title m-b-md"">
-                    Sukhmani<br><b>BuildWell</b>
+                    <b>Sukhmani</b> <br><b>BuildWell</b>
                 </div>
             </div>
         </div>
