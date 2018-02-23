@@ -36,11 +36,11 @@
         <form method="POST" action="{{ route('saveStockInventory') }}">
             {{ csrf_field() }}
             <div class="col-md-10 col-md-offset-1" style="overflow-x:auto;">
-                <table class="table hover table-striped display">
+                <table class="table table-hover table-striped table-condensed">
                     <thead>
                         <tr>
-                            <th>Category</th>
-                            <th>Quantity</th>
+                            <th style="width: 20%;">Category</th>
+                            <th style="width: 12%;">Quantity</th>
                             <th>Rate< (in Rs)</th>
                             <th>Amount (in Rs)</th>
                             <th>Dated</th>
