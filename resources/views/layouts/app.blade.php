@@ -145,6 +145,13 @@
                 }
             });
         });
+
+        $(document).on("click", ".dropdown", function(){
+            wid = $(this).width();
+            console.log(wid);
+            $(".dropdown-menu").css("width",wid);
+            $(".dropdown-menu").css("min-width",wid);
+        });
     </script>
 
 </body>
