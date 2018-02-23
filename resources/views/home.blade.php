@@ -7,8 +7,7 @@
             <div class="card cardi" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
               <div class="card-block">
                 <h4 class="card-title">Warehouse</h4>
-                <p class="card-text">Add item to Warehouse</p>
-                    <a href="{{ route('stockInventory') }}" class="card-link">Inventory</a>
+                    <a href="{{ route('stockInventory') }}" class="card-link">Add items to Warehouse</a>
               </div>
             </div>
         </div>
