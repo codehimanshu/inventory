@@ -8,6 +8,7 @@ use App\Category;
 use App\Stock;
 use App\Log;
 use Auth;
+use AWS;
 
 class HomeController extends Controller
 {
@@ -68,6 +69,17 @@ class HomeController extends Controller
             $log->amount = $amounts[$key];
             $log->save();
         }
+
+        $mobiles = [9654379609,9235553838];
+        foreach ($mobiles as $mobile) {
+                $sns = AWS::createClient('sns');
+                $args = array();
+                $args['SMSType'] = "transactional";
+                $args['SenderID'] = "anurag";
+                $args['Message'] = "The warehouse entries have been changed, Please have a look.";
+                $args['PhoneNumber'] = "+91-". $mobile;
+                $result = $sns->publish($args);
+            }
         $request->session()->put('success1',"success");
         return redirect('/stockReport');
     }
@@ -175,7 +187,18 @@ class HomeController extends Controller
                     }
                 }
             }
-        }
+
+            $mobiles = [9654379609,9235553838];
+            foreach ($mobiles as $mobile) {
+                    $sns = AWS::createClient('sns');
+                    $args = array();
+                    $args['SMSType'] = "transactional";
+                    $args['SenderID'] = "anurag";
+                    $args['Message'] = "The items have been moved to Sites. Please have a look.";
+                    $args['PhoneNumber'] = "+91-". $mobile;
+                    $result = $sns->publish($args);
+                }
+            }
         if(count($errors))
             $request->session()->put('errors',$errors);
         else

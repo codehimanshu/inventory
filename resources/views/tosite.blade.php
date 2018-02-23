@@ -20,6 +20,12 @@
                                 </select>\
                             </td>\
                             <td>\
+                                <select class="form-control" name="site[]">\
+                                    <option>Site 1</option>\
+                                    <option>Site 2</option>\
+                                </select>\
+                            </td>\
+                            <td>\
                                 <input type="number" class="form-control quantity" name="quantity[]" step="0" >\
                             </td>\
                             <td>\
@@ -59,7 +65,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="alert alert-success">
-                      <strong>Success!</strong> Stock created.
+                      <strong>Success!</strong> Items moved to Site.
                     </div>
                 </div>
             </div>
@@ -74,6 +80,7 @@
                         <tr>
                             <th>Category</th>
                             <th>Sub Category</th>
+                            <th>To Site</th>
                             <th>Quantity</th>
                             <th>Rate/Unit (in Rs)</th>
                             <th>Total Cost (in Rs)</th>
@@ -94,6 +101,12 @@
                             <td>
                                 <select class="form-control subcategory" name="subcategories[]">
                                     <option disabled="true">Select Category</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control" name="site[]">
+                                    <option>Site 1</option>
+                                    <option>Site 2</option>
                                 </select>
                             </td>
                             <td>
