@@ -115,7 +115,7 @@
                 </table>
                 <span style="float: right;"><input type="button" class="btn btn-sm btn-primary" onclick="addfield()" value="Add Row"></span>
                 <br><br>
-                <center><input type="submit" class="form-control btn btn-primary" style="width: 100px;" name="submit"></center>
+                <center><input type="submit" class="form-control btn btn-primary" style="width: 100px; margin-bottom: 40px;" name="submit"></center>
             </div>        
         </form>
     </div>
