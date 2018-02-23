@@ -64,7 +64,7 @@
                                     </a>
 
                                     <ul class="dropdown-menu dropdown-menu-left">
-                                        <li><a href="{{ route('stockReport') }}">Stock</a></li>
+                                        <li><a href="{{ route('stockReport') }}">Warehouse</a></li>
                                         <li><a href="{{ route('site1Report') }}">Site 1</a></li>
                                         <li><a href="{{ route('site2Report') }}">Site 2</a></li>
                                     </ul>
@@ -89,9 +89,6 @@
 
         @yield('content')
     </div>
-    <footer style="bottom: 0; position: fixed; background-color: #000000a3; color: white; width: 100%;">
-        <center>© Copyright 2018 Sukhmani Buildwell</center>
-    </footer>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

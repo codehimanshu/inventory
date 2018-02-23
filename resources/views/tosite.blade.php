@@ -78,13 +78,13 @@
                 <table class="table table-hover table-striped table-condensed">
                     <thead>
                         <tr>
-                            <th>Category</th>
-                            <th>Sub Category</th>
-                            <th>To Site</th>
-                            <th>Quantity</th>
-                            <th>Rate/Unit (in Rs)</th>
-                            <th>Total Cost (in Rs)</th>
-                            <th>Dated</th>
+                            <th style="width: 19%;">Category</th>
+                            <th style="width: 19%;">Sub Category</th>
+                            <th style="width: 15%;">To Site</th>
+                            <th style="width: 15%;">Quantity</th>
+                            <th style="width: 18%;">Rate/Unit (in Rs)</th>
+                            <th style="width: 20%;">Total Cost (in Rs)</th>
+                            <th style="width: 15%;">Date</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -109,12 +109,14 @@
                                     <option>Site 2</option>
                                 </select>
                             </td>
+                           
                             <td>
                                 <input type="number" class="form-control quantity" name="quantity[]" step="0" >
                             </td>
                             <td>
                                 <input type="number" class="form-control costing" name="costing[]"  step="0.01">
                             </td>
+
                             <td>
                                 <input type="number" class="form-control amount" name="amount[]"   step="0.01">
                             </td>

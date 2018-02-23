@@ -50,12 +50,12 @@
                 <table class="table table-hover table-striped table-condensed">
                     <thead>
                         <tr>
-                            <th>Category</th>
-                            <th>Sub Category</th>
+                            <th style="width: 19%;">Category</th>
+                            <th style="width: 19%;">Sub Category</th>
                             <th>Quantity</th>
-                            <th>Rate/Unit (in Rs)</th>
-                            <th>Total Cost (in Rs)</th>
-                            <th>Dated</th>
+                            <th style="width: 15%;">Rate/Unit (in Rs)</th>
+                            <th style="width: 15%;">Total Cost (in Rs)</th>
+                            <th style="width:10%;">Date</th>
                             <th>Delete</th>
                         </tr>
                     </thead>

@@ -76,7 +76,7 @@ class HomeController extends Controller
                 $args = array();
                 $args['SMSType'] = "transactional";
                 $args['SenderID'] = "anurag";
-                $args['Message'] = "The warehouse entries have been changed, Please have a look.";
+                $args['Message'] = "Hi Admin, \n \nThe warehouse entries have been changed, Please have a look !";
                 $args['PhoneNumber'] = "+91-". $mobile;
                 $result = $sns->publish($args);
             }
@@ -194,7 +194,7 @@ class HomeController extends Controller
                     $args = array();
                     $args['SMSType'] = "transactional";
                     $args['SenderID'] = "anurag";
-                    $args['Message'] = "The items have been moved to Sites. Please have a look.";
+                    $args['Message'] = "Hi Admin,\n\nThe items have been moved to Sites. Please have a look !";
                     $args['PhoneNumber'] = "+91-". $mobile;
                     $result = $sns->publish($args);
                 }

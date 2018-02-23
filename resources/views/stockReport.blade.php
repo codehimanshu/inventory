@@ -16,7 +16,7 @@
         <?php session()->forget('success1'); ?>
         <center><h2>Warehouse Stock</h2></center>
 		<div class="col-md-10 col-md-offset-1" style="overflow-x:auto;">
-	        <span style="float: right;"><h3>Total Cost: {{ $total_amt }}</h3></span>
+	        <span style="float: right;"><h3>Total Cost: Rs. {{ $total_amt }}</h3></span>
 			<table class="table datatable hover table-striped display" style="text-align: center;" id="table2excel">
 			    <thead>
 			        <tr style="text-align: center!important;">
@@ -41,7 +41,7 @@
 			    </tbody>
 			</table>
 			<br>
-            <center><input type="submit" class="form-control btn btn-primary" id="export" style="width: 100px;margin-bottom: 40px;" name="submit" value="Download"></center>
+            <center><input type="submit" class="form-control btn btn-primary" id="export" style="width: 200px;margin-bottom: 40px;" name="submit" value="Download Report"></center>
 		</div>
 	</div>
 </div>

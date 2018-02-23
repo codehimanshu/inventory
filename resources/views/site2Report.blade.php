@@ -6,7 +6,7 @@
 	<div class="row">
         <center><h2>Site 2 Report</h2></center>
 		<div class="col-md-10 col-md-offset-1" style="overflow-x:auto;">
-	        <span style="float: right;"><h3>Total Cost: {{ $total_amt }}</h3></span>
+	        <span style="float: right;"><h3>Total Cost: Rs. {{ $total_amt }}</h3></span>
 			<table class="table datatable hover table-striped display" id="table2excel" style="text-align: center!important;">
 			    <thead>
 			        <tr>
@@ -31,7 +31,7 @@
 			    </tbody>
 			</table>
 			<br>
-            <center><input type="submit" class="form-control btn btn-primary" id="export" style="width: 100px; margin-bottom: 40px;" name="submit" value="Download"></center>
+            <center><input type="submit" class="form-control btn btn-primary" id="export" style="width: 200px; margin-bottom: 40px;" name="submit" value="Download Report"></center>
 		</div>
 	</div>
 </div>
