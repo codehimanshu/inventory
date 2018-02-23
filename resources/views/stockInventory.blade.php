@@ -42,7 +42,7 @@
                             <th>Category</th>
                             <th>Sub Category</th>
                             <th>Quantity</th>
-                            <th>Rate< (in Rs)</th>
+                            <th>Rate (in Rs)</th>
                             <th>Total Cost (in Rs)</th>
                             <th>Dated</th>
                             <th>Delete</th>
