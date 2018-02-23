@@ -4,19 +4,19 @@
 <div class="container" style="margin-bottom: 30px;">
     <div class="row">
         <div class="col-md-6" style="margin-bottom: 30px;">
-            <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
+            <div class="card cardi" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
               <div class="card-block">
                 <h4 class="card-title">Warehouse</h4>
-                <p class="card-text">Add item to stock</p>
+                <p class="card-text">Add item to Warehouse</p>
                     <a href="{{ route('stockInventory') }}" class="card-link">Inventory</a>
               </div>
             </div>
         </div>
         <div class="col-md-6" style="margin-bottom: 30px;">
-            <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
+            <div class="card cardi" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
               <div class="card-block">
-                <h4 class="card-title">Add to site</h4>
-                <p class="card-text">Add items to site</p>
+                <h4 class="card-title">Add to Site</h4>
+                <p class="card-text">Add items to Site</p>
                     <a href="{{ route('tosite') }}" class="card-link">To Site</a>
               </div>
             </div>
@@ -26,7 +26,7 @@
     @if(Auth::user()->role == 1)
         <div class="row" style="margin-bottom: 30px;">
             <div class="col-md-4" style="margin-bottom: 30px;">
-                <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
+                <div class="card cardi" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
                   <div class="card-block">
                     <h4 class="card-title">Warehouse</h4>
                     <p class="card-text">Report of Stock at Warehouse</p>
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col-md-4" style="margin-bottom: 30px;">
-                <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
+                <div class="card cardi" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
                   <div class="card-block">
                     <h4 class="card-title">Site 1</h4>
                     <p class="card-text">Report of Stock at Site 1</p>
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
+                <div class="card cardi" style="background-color: #81d1f7; padding: 10px; border-radius: 5px;">
                   <div class="card-block">
                     <h4 class="card-title">Site 2</h4>
                     <p class="card-text">Report of Stock at Site 2</p>

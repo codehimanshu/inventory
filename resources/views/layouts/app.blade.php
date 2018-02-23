@@ -50,7 +50,7 @@
                             <li><a href="{{ route('home') }}">Dashboard</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    Inventory&nbsp; <span class="caret"></span>&nbsp;&nbsp;&nbsp;
+                                    Inventory&nbsp; <span class="caret"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-left">
                                     <li><a href="{{ route('stockInventory') }}">Warehouse</a></li>

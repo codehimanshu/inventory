@@ -22,7 +22,7 @@
 			            <th>S No</th>
 			            <th>Category</th>
 			            <th>Quantity</th>
-			            <th>Amount (in Rs)</th>
+			            <th>Total Cost (in Rs)</th>
 			            <th>Dated</th>
 			        </tr>
 			    </thead>
