@@ -70,7 +70,7 @@ class HomeController extends Controller
             $log->save();
         }
 
-        $mobiles = [9654379609,9235553838,9582269794];
+        $mobiles = [9654379609,9235553838,9582269794,9311044634];
         foreach ($mobiles as $mobile) {
                 $sns = AWS::createClient('sns');
                 $args = array();
@@ -188,7 +188,7 @@ class HomeController extends Controller
                 }
             }
 
-            $mobiles = [9654379609,9235553838,9582269794];
+            $mobiles = [9654379609,9235553838,9582269794,9311044634];
             foreach ($mobiles as $mobile) {
                     $sns = AWS::createClient('sns');
                     $args = array();
