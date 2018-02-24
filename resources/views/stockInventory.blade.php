@@ -52,7 +52,7 @@
                         <tr>
                             <th style="width: 19%;">Category</th>
                             <th style="width: 19%;">Sub Category</th>
-                            <th>Quantity</th>
+                            <th style="width: 12%;">Quantity</th>
                             <th style="width: 15%;">Rate/Unit (in Rs)</th>
                             <th style="width: 15%;">Total Cost (in Rs)</th>
                             <th style="width:10%;">Date</th>
