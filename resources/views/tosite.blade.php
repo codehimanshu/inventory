@@ -81,9 +81,9 @@
                             <th style="width: 19%;">Category</th>
                             <th style="width: 19%;">Sub Category</th>
                             <th style="width: 15%;">To Site</th>
-                            <th style="width: 15%;">Quantity</th>
+                            <th style="width: 12%;">Quantity</th>
                             <th style="width: 18%;">Rate/Unit (in Rs)</th>
-                            <th style="width: 20%;">Total Cost (in Rs)</th>
+                            <th style="width: 20% !important;">Total Cost (in Rs)</th>
                             <th style="width: 15%;">Date</th>
                             <th>Delete</th>
                         </tr>
