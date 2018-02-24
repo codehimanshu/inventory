@@ -113,7 +113,7 @@ class HomeController extends Controller
         foreach ($categories as $key => $category) {
             $stock = Stock::where('subcategory_id',$categories[$key])->get();
             if(count($stock) ==0){
-                $subcategory = SubCategory::where('subcategory_id',$categories[$key])->get();
+                $subcategory = SubCategory::where('id',$categories[$key])->get();
                 array_push($errors, $subcategory[0]->subcategory . " Qunatity: ". $quantities[$key] );
                 continue;
             }else
