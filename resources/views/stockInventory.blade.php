@@ -28,6 +28,9 @@
                                 <input type="number" class="form-control amount" name="amount[]" step="0.01" >\
                             </td>\
                             <td>\
+                                <input type="test" class="form-control vendor" name="vendor[]">\
+                            </td>\
+                            <td>\
                                 <input type="date" class="form-control" name="date[]" required="true">\
                             </td>\
                             <td>\
@@ -55,6 +58,7 @@
                             <th style="width: 12%;">Quantity</th>
                             <th style="width: 15%;">Rate/Unit (in Rs)</th>
                             <th style="width: 15%;">Total Cost (in Rs)</th>
+                            <th style="width: 15%;">Vendor</th>
                             <th style="width:10%;">Date</th>
                             <th>Delete</th>
                         </tr>
@@ -82,6 +86,9 @@
                             </td>
                             <td>
                                 <input type="number" class="form-control amount" name="amount[]" step="0.01" >
+                            </td>
+                            <td>
+                                <input type="test" class="form-control vendor" name="vendor[]">
                             </td>
                             <td>
                                 <input type="date" class="form-control" name="date[]" required="true">
